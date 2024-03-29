@@ -5,8 +5,8 @@ $(document).ready(function() {
     }
 
     $(".character_select img").mouseenter(function() {
-        var characterName = $(this).attr("character-name");
-        var language = getCurrentLanguage(); 
+        let characterName = $(this).attr("character-name");
+        let language = getCurrentLanguage();
         
         console.log("준비 완료");
         $.ajax({
