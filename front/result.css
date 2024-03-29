@@ -25,7 +25,7 @@ header {
   height: 60px;
 }
 .nav li {
-  flex: 1;
+  width: 200px;
   padding-left: 30px;
   padding-top: 5px;
 }
