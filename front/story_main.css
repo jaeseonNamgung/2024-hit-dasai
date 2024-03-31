@@ -1,0 +1,263 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: "omnigothic", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  background-color: #f3f3f3;
+  color: #000;
+}
+a {
+  color: #000;
+  text-decoration: none;
+}
+header {
+  height: 60px;
+  overflow: hidden;
+}
+.nav {
+  list-style: none;
+  padding: 20px 250px 0 0;
+  margin: 0;
+  display: flex;
+  float: left;
+  overflow: hidden;
+  height: 60px;
+}
+.nav li {
+  padding-left: 30px;
+  padding-top: 5px;
+  width: 200px;
+}
+.nav li a {
+  font-size: 15px;
+}
+.nav li a:hover {
+  color: #f86551;
+  transition: 0.3s;
+}
+.btn {
+  position: relative;
+  height: 60px;
+  float: right;
+  padding: 5px 20px 0 0;
+}
+.btn input {
+  position: relative;
+  width: 150px;
+  height: 45px;
+  border-radius: 20px;
+  outline: none;
+  appearance: none;
+  font-weight: bold;
+  box-shadow: 0 1px 5px #c1c1d2bd;
+}
+.btn input::before,
+.btn input:after {
+  z-index: 2;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #000000;
+}
+.btn input:before{
+  content: "CN";
+  left: 31px;
+}
+.btn input::after{
+  content: "KR";
+  right: 31px;
+}
+.btn label {
+  z-index: 1;
+  position: absolute;
+  top: 11px;
+  bottom: 11px;
+  border-radius: 20px;
+}
+.btn .btn-1 input {
+  transition: 0.2s -0.1s;
+}
+.btn .btn-1 input:checked{
+  background: #F86551;
+}
+.btn.btn-1 input:checked::before{
+  color: #fff;
+  transition: color 0.5s 0.2s;
+}
+.btn .btn-1 input:checked::after{
+  color: #fff;
+  transition: color 0.5s;
+}
+.btn.btn-1 input:checked + label {
+  left: 5px;
+  right: 95px;
+  background: #F86551;
+  transition: left 0.5s, right 0.4s 0.2s;
+}
+.btn.btn-1 input:not(:checked){
+  background: #F0F0F3;
+  transition: background 0.5s -0.1s;
+}
+.btn.btn-1 input:not(:checked)::before{
+  color: #000;
+  transition: color 0.5s;
+}
+.btn.btn-1 input:not(:checked):after{
+  color: #fff;
+  transition: color 0.5s 0.2s;
+}
+.btn.btn-1 input:not(:checked) + label {
+  left: 80px;
+  right: 30px;
+  background: #F86551;
+  transition: left 0.4s 0.2s, right 0.5s, background 0.35s -0.1s;
+}
+section {
+  text-align: center;
+  border: 1px solid rgba(255, 0, 0, 0);
+  width: auto;
+  height: 800px;
+}
+.goq {
+  width: 200px;
+  height: 50px;
+  margin: 20px;
+}
+section button {
+  border: none;
+  background-color: #f0f0f3;
+  border-radius: 40px;
+  box-shadow: 0 0 10px #7474744c;
+  width: 200px;
+  height: 50px;
+  font-family: "omnigothic", sans-serif;
+  font-weight: 400;
+}
+.tabs > p {
+  width: 940px;
+  height: 95px;
+  background-color: #f86551;
+  color: #fff;
+  border-radius: 30px;
+  padding: 40px;
+  overflow: hidden;
+  font-size: 20px;
+  font-weight: 300;
+  margin: auto;
+  margin-top: 300px;
+}
+.select {
+  list-style: none;
+  display: flex;
+  width: 1500px;
+  margin: auto;
+  overflow: hidden;
+}
+.select li {
+  background-color: #fff;
+  text-align: center;
+  width: 245px;
+  height: 65px;
+  border-radius: 50px;
+  padding: 23px;
+  margin: auto;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.select li:hover {
+  color: #f86551;
+  border: 1px solid #f86551;
+}
+.select li.active {
+  background-color: #f86551;
+  color: #fff;
+}
+
+/* tab */
+.tabs > div {
+  display: none;
+  margin: 20px;
+  width: auto;
+  height: 700px;
+  overflow: hidden;
+}
+.tabs > div.active {
+  display: block;
+}
+
+/* 답안이 1개 + 이미지 */
+.wen {
+  background-color: #f86551;
+  color: #fff;
+  border-radius: 40px 40px 0 40px;
+  padding: 25px 40px;
+  float: right;
+  margin: 10px;
+}
+.da {
+  background-color: #fff;
+  border-radius: 0 40px 40px 40px;
+  padding: 30px;
+  margin-top: 90px;
+  margin-left: 10px;
+  width: 800px;
+  text-align: left;
+}
+.story_img {
+  background-color: #fff;
+  width: 450px;
+  height: 450px;
+  border-radius: 0 40px 40px 40px;
+  margin-left: 10px;
+}
+.story_img img {
+  width: 400px;
+  height: 400px;
+  float: left;
+  margin-left: 25px;
+  margin-top: 25px;
+}
+
+/* 답안이 2개 + 이미지 */
+#tab2, #tab3 {
+  overflow: hidden;
+  overflow-y: scroll;
+}
+#tab2 div, #tab3 div {
+  overflow: hidden;
+}
+.da_short {
+  padding: 25px 40px;
+  background-color: #fff;
+  border-radius: 0 40px 40px 40px;
+  margin-top: 90px;
+  margin-left: 10px;
+  padding: 25px 40px;
+  float: left;
+}
+.da_long {
+  background-color: #fff;
+  border-radius: 0 40px 40px 40px;
+  padding: 30px;
+  margin-top: 190px;
+  margin-left: 10px;
+  text-align: left;
+  width: 800px;
+}
+.story_img_long {
+  background-color: #fff;
+  width: 450px;
+  height: 450px;
+  border-radius: 0 40px 40px 40px;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+.story_img_long img {
+  width: 400px;
+  height: 400px;
+  float: left;
+  margin-left: 25px;
+  margin-top: 25px;
+}
