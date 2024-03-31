@@ -1,6 +1,6 @@
 plugins {
     id 'java'
-    id 'org.springframework.boot' version '3.2.3'
+    id 'org.springframework.boot' version '3.2.4'
     id 'io.spring.dependency-management' version '1.1.4'
 }
 
@@ -9,15 +9,6 @@ version = '0.0.1-SNAPSHOT'
 
 java {
     sourceCompatibility = '17'
-}
-
-jar {
-    manifest {
-        attributes(
-                'Implementation-Title': project.name,
-                'Implementation-Version': version
-        )
-    }
 }
 
 configurations {
@@ -60,10 +51,4 @@ dependencies {
 
 tasks.named('test') {
     useJUnitPlatform()
-}
-
-def generatedDir = 'src/main/generated'
-
-clean {
-    delete file (generatedDir)
 }

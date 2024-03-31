@@ -2,9 +2,14 @@ body {
   font-family: "omnigothic", sans-serif;
   font-weight: 400;
   font-style: normal;
-  background-color: #f3f3f3;
+  background-color: #f1f4f6;
+  background-image: url("../front/images/back.webp");
+  background-position: center; /* 이미지를 요소의 중앙에 위치시킵니다 */
+
   color: #000;
 }
+
+
 a {
   color: #000;
   text-decoration: none;
@@ -21,6 +26,8 @@ header {
   height: 60px;
   display: flex; 
   float: left;
+  border-radius: 12%;
+  background-color: rgba(241, 154, 106, 0.45);
   box-sizing: border-box;
   overflow: hidden;
 }
@@ -122,13 +129,15 @@ section {
   height: 1000px;
 }
 .character_select {
-  width: 700px;
-  height: 700px;
+  width: 800px;
+  height: 800px;
   position: absolute;
 }
 .character_select img {
-  width: 300px;
-  height: 300px;
+  width: 400px;
+  height: 400px;
+
+
   position: absolute;
 }
 .character:hover {

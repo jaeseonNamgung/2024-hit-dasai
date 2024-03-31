@@ -95,7 +95,7 @@ class StoryServiceTest {
 
         // 검증
         assertEquals("한국어 내용입니다.", responseDto.getStoryContents().get(0));
-        assertEquals(fileDir + "손오공.png", responseDto.getStoryImagesUrl().get(0));
+        assertEquals(fileDir + "/손오공.png", responseDto.getStoryImagesUrl().get(0));
     }
 
     @Test
@@ -157,7 +157,7 @@ class StoryServiceTest {
 
         // 검증
         assertEquals("中文内容", responseDto.getStoryContents().get(0));
-        assertEquals(fileDir + "손오공.png", responseDto.getStoryImagesUrl().get(0));
+        assertEquals(fileDir + "/손오공.png", responseDto.getStoryImagesUrl().get(0));
     }
 
     @Test
