@@ -33,7 +33,8 @@ $(document).ready(function() {
                 window.location.href = "test_real.html"; // 페이지 이동
             },
             error: function(error) {
-                console.log('Error:', error);
+                console.log(error)
+                alert(error.responseJSON.message)
             }
         });
     }
