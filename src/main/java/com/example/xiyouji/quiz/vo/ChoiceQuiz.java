@@ -35,7 +35,7 @@ public class ChoiceQuiz extends Quiz {
     @Override
     public QuizDto.QuizResponseDto toQuizResponse() {
         return QuizDto.QuizResponseDto.builder()
-                .characterType(getCharacterType().getValue_kr())
+                .characterType(getCharacterType().getValue_pinyin())
                 .answer(answerNum)
                 .options(options)
                 .answerDescription(getAnswerDescription())
