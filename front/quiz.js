@@ -2,6 +2,7 @@ $(document).ready(function() {
     // 저장된 닉네임 로드
     var nickname = localStorage.getItem('currentNickname');
     // 닉네임을 기반으로 퀴즈 데이터 로드
+    var userId = localStorage.getItem('currentUserId'); // userId 불러오기
     var quizData = JSON.parse(localStorage.getItem('quizData' + nickname));
     var currentQuizIndex = 0;
     var score = 0;
@@ -22,6 +23,19 @@ $(document).ready(function() {
             // 답변 확인 섹션 숨기기 및 문제 섹션 표시
             $(".an").hide();
             $(".main").show();
+
+            // 마지막 문제이면 버튼의 텍스트와 이벤트 변경
+            if (currentQuizIndex === quizData.length - 1) {
+                $("#next_btn").text("결과 보러 가기").off('click').on('click', function() {
+                    displayResults(); // 결과 표시 함수 호출
+                });
+            } else {
+                // 마지막 문제가 아니면 기본 텍스트와 이벤트 유지
+                $("#next_btn").text("다음 문제").off('click').on('click', function() {
+                    currentQuizIndex++;
+                    displayQuiz();
+                });
+            }
         } else {
             // 모든 퀴즈 완료 시 결과 표시
             displayResults();
@@ -46,19 +60,34 @@ $(document).ready(function() {
         $(".an").show();
     }
 
+    function sendQuizResults() {
+        var Characters = correctCharacterTypes;
+        console.log(Characters);
+    
+        $.ajax({
+            url: `http://15.164.230.127:8080/quiz/result/${userId}`, 
+            type: 'POST', 
+            contentType: 'application/json', 
+            data: JSON.stringify(Characters),
+            success: function(response) {
+                console.log("성공적으로 결과를 전송했습니다.", response);
+                localStorage.setItem('Characters',  JSON.stringify(Characters));
+                window.location.href = 'result.html';
+            },
+            error: function(xhr, status, error) {
+                console.error("결과 전송 실패:", error);
+            }
+        });
+    }
+    
+    
     function displayResults() {
-        $(".container").html(`<div class="score-display">퀴즈 완료! 당신의 점수는 ${score}/${quizData.length}입니다.</div><div>맞춘 캐릭터 유형: ${[...new Set(correctCharacterTypes)].join(', ')}</div>`);
+        sendQuizResults(); // 서버에 결과 데이터 전송
     }
 
     // 옵션 선택 시 정답 확인
     $('.answer input[type="radio"]').on('change', function() {
         checkAnswer();
-    });
-
-    // "다음 문제" 버튼 클릭 이벤트
-    $("#next_btn").on('click', function() {
-        currentQuizIndex++;
-        displayQuiz();
     });
 
     // 첫 번째 문제 표시
