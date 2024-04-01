@@ -9,6 +9,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@200;400;500;700;900&display=swap" rel="stylesheet">
   <script src="https://kit.fontawesome.com/32c80bd758.js" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+  <script src="translate.js"></script>
+  <script src="quiz_nickname.js"></script>
+	<script src="quiz.js"></script>
+  <script src="result.js"></script>
   <script>
     (function(d) {
       var config = {
@@ -27,14 +32,14 @@
       <header>
         <ul class="nav">
           <li><a href="main.html"><i class="fa-solid fa-house"></i> HOME</a></li>
-          <li><a href="#">내용</a></li>
+          <li><a href="story_main.html">내용</a></li>
           <li><a href="quiz.html">퀴즈</a></li>
         </ul>
       </header>
       <section>
         <div class="titles">
-          <img src="images/삼장.png" alt="character_image" class="character_image">
-          <h1 class="type">당신은 손오공 전문가!</h1>
+          <img alt="character_image" class="character_image">
+          <h1 class="type"></h1>
         </div>
         <div class="rank">
           <h2 class="ask">나의 전체 순위는?</h2>
@@ -115,6 +120,15 @@
               </span>
             </div>
           </div>
+          <div class="page">
+            <img src="/images/angle-left-solid.svg" alt="">
+            <p>1</p>
+            <p>2</p>
+            <p>3</p>
+            <p>4</p>
+            <p>5</p>
+            <img src="/images/angle-right-solid.svg" alt="">
+          </div>
           <input id="user_ment" type="text" placeholder="나도 한마디 남기기!">
           <button class="push">남기기</button>
         </div>
@@ -122,8 +136,6 @@
     </main>
   </div>
 
-  <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
-  <script src="result.js"></script>
   
 </body>
 </html>

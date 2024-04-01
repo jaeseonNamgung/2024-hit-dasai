@@ -126,7 +126,6 @@ section {
   overflow: hidden;
   width: 900px;
   margin: auto;
-  border-bottom: 1px solid #7a7a7a;
 }
 .users div {
   background-color: #fff;
@@ -236,6 +235,26 @@ section {
   margin-top: 5px;
 }
 
+/* 페이지 수 (추가) */
+.page {
+  display: flex;
+  border-bottom: 1px solid #7a7a7a;
+  padding: 5px;
+  /* border: 1px solid red; */
+  text-align: center;
+  justify-content: center;
+}
+.page img {
+  width: 15px;
+  cursor: pointer;
+}
+.page p {
+  padding: 5px;
+  cursor: pointer;
+}
+.page p:hover {
+  color: #f86551;
+}
 /* input */
 input[type=text] {
   border-radius: 40px;
