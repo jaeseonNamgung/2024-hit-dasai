@@ -9,6 +9,7 @@ body {
   background-position: -60px 0;
   color: #000;
   position: relative;
+  overflow: hidden;
 }
 a {
   color: #000;
@@ -122,7 +123,7 @@ section {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 700px;
+  height: 730px;
   width: 1660px;
 }
 .character_select {
@@ -183,7 +184,7 @@ section {
   position: absolute;
   background-color: #00000069;
   width: 1700px;
-  height: 1090px;
+  height: 1120px;
   display: none;
 }
 .introduce {
