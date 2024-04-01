@@ -1,3 +1,6 @@
+* {
+  box-sizing: border-box;
+}
 body {
   font-family: "omnigothic", sans-serif;
   font-weight: 400;
@@ -17,43 +20,38 @@ header {
   list-style: none;
   padding: 20px 250px 0 0;
   margin: 0;
-  width: 800px;
-  height: 60px;
-  display: flex; 
+  display: flex;
   float: left;
-  box-sizing: border-box;
   overflow: hidden;
+  height: 60px;
 }
 .nav li {
-  flex: 1;
-  text-align: center;
+  padding-left: 30px;
+  padding-top: 5px;
+  width: 200px;
 }
 .nav li a {
-  font-size: 18px;
-  position: relative;
+  font-size: 15px;
 }
 .nav li a:hover {
-  color: #F86551;
+  color: #fab25b;
   transition: 0.3s;
 }
 .btn {
   position: relative;
   height: 60px;
   float: right;
-  /* border: 1px solid red; */
-  /* overflow: hidden; */
   padding: 5px 20px 0 0;
 }
 .btn input {
   position: relative;
-  width: 180px;
-  height: 47px;
-  border-radius: 15px;
+  width: 150px;
+  height: 45px;
+  border-radius: 20px;
   outline: none;
   appearance: none;
   font-weight: bold;
-  box-shadow: 0 1px 5px #c1c1d2bd;
-  /* overflow: hidden; */
+  box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
 }
 .btn input::before,
 .btn input:after {
@@ -65,24 +63,24 @@ header {
 }
 .btn input:before{
   content: "KR";
-  left: 40px;
+  left: 31px;
 }
 .btn input::after{
   content: "CN";
-  right: 40px;
+  right: 31px;
 }
 .btn label {
   z-index: 1;
   position: absolute;
-  top: 10px;
-  bottom: 10px;
-  border-radius: 15px;
+  top: 11px;
+  bottom: 11px;
+  border-radius: 20px;
 }
 .btn .btn-1 input {
   transition: 0.2s -0.1s;
 }
 .btn .btn-1 input:checked{
-  background: #F86551;
+  background: #fab25b;
 }
 .btn.btn-1 input:checked::before{
   color: #fff;
@@ -93,9 +91,9 @@ header {
   transition: color 0.5s;
 }
 .btn.btn-1 input:checked + label {
-  left: 10px;
-  right: 110px;
-  background: #F86551;
+  left: 5px;
+  right: 95px;
+  background: #fab25b;
   transition: left 0.5s, right 0.4s 0.2s;
 }
 .btn.btn-1 input:not(:checked){
@@ -111,72 +109,66 @@ header {
   transition: color 0.5s 0.2s;
 }
 .btn.btn-1 input:not(:checked) + label {
-  left: 90px;
+  left: 80px;
   right: 30px;
-  background: #F86551;
+  background: #fab25b;
   transition: left 0.4s 0.2s, right 0.5s, background 0.35s -0.1s;
 }
 section {
   text-align: center;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
-  position: absolute;
+  /* border: 1px solid red; */
+  width: 1660px;
+  height: 750px;
 }
 .quiz_logo img {
   width: 202px;
   height: 198px;
 }
 .quiz_logo h1 {
-  font-size: 50px;
+  font-size: 40px;
+  margin-top: 110px;
 }
 .login {
-  /* border: 1px solid #000; */
-  padding: 50px;
-  width: 600px;
+  padding: 30px;
+  font-size: 20px;
 }
 .login h2 {
-  font-weight: 300;
-  font-size: 30px;
+  font-weight: 400;
   margin-top: 10px;
 }
 .login input[type=text] {
   outline: none;
-  border-radius: 40px;
+  border-radius: 50px;
   border: none;
 }
 .login input[type=text] {
   font-family: "omnigothic", sans-serif;
   font-weight: 300;
   text-align: center;
-  width: 335px;
+  width: 400px;
   height: 90px;
   font-size: 25px;
-  box-shadow: 0 0 10px #776f6f3a;
+  box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
 }
-.login input::placeholder {
-  opacity: 1;
-  transition: 0.3s;
-}
-.login input:focus::placeholder {
+.login input:focur::placeholder {
   opacity: 0;
   visibility: hidden;
 }
 #go_quiz {
-  width: 287px;
+  width: 285px;
   height: 90px;
   border-radius: 50px;
   border: none;
   text-align: center;
-  box-shadow: 0 0 10px #776f6f3a;
+  box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
   font-family: "omnigothic", sans-serif;
-  font-weight: 300;
+  font-weight: 400;
   text-align: center;
   font-size: 20px;
   margin-top: 70px;
 }
 #go_quiz:hover {
-  background-color: #F86551;
+  background-color: #fab25b;
   transition: 0.3s;
   cursor: pointer;
   color: #fff;
