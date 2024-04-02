@@ -1,7 +1,7 @@
 $(function() {
     function getCurrentLanguage() {
         // 체크박스가 체크되어 있으면 'kr', 그렇지 않으면 'zh' 반환
-        return $('.translate_btn input[type="checkbox"]').is(":checked") ? 'kr' : 'zh';
+        return $('.translate_btn input[type="checkbox"]').is(":checked") ? 'kr' : 'cn';
     }
 
     // 캐릭터에 마우스를 올렸을 때
@@ -17,7 +17,7 @@ $(function() {
 
         console.log("준비 완료");
         $.ajax({
-            url: `http://15.164.230.127:8080/character/${characterName}/kr`, // 언어 변수를 동적으로 사용
+            url: `http://15.164.230.127:8080/character/${characterName}/${language}`, // 언어 변수를 동적으로 사용
             type: 'GET',
             dataType: 'json',
             success: function(response) {
