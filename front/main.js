@@ -1,7 +1,7 @@
 $(function() {
     function getCurrentLanguage() {
         // 체크박스가 체크되어 있으면 'kr', 그렇지 않으면 'zh' 반환
-        return $('.translate_btn input[type="checkbox"]').is(":checked") ? 'kr' : 'cn';
+        return $('.btn input[type="checkbox"]').is(":checked") ? 'kr' : 'cn';
     }
 
     // 캐릭터에 마우스를 올렸을 때
