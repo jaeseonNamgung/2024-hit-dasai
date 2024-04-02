@@ -27,7 +27,7 @@ userid를 클라이언트가 가지고 있는데 페이지를 넘길때 파라�
 
 결과 보낸 후 
 
-comment은 최신순! 제약을 주기 위해 한 사람당 2개만!
+comment은 최신순! 제약을 주기 위해 한 사람당 1개만!
 
 comment 남겼을때 post로 comment/userid comment내용은 데이터에 담아서 보내주 
 
