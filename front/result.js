@@ -1,5 +1,6 @@
 function characterResult(){
     var Characters = JSON.parse(localStorage.getItem('Characters'));
+    console.log("캐릭터 결과" + Characters)
     var nameMapping = {
         sunwukong: '손오공',
         samjang: '삼장법사',
