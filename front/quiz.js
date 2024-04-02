@@ -22,7 +22,7 @@ $(document).ready(function() {
 
             // 답변 확인 섹션 숨기기 및 문제 섹션 표시
             $(".an").hide();
-            $(".main").show();
+            $("main").show();
 
             // 마지막 문제이면 버튼의 텍스트와 이벤트 변경
             if (currentQuizIndex === quizData.length - 1) {
@@ -56,13 +56,12 @@ $(document).ready(function() {
         $(".content p").html(quizData[currentQuizIndex].answerDescription);
 
         // 답변 확인 섹션 표시 및 문제 섹션 숨기기
-        $(".main").hide();
+        $("main").hide();
         $(".an").show();
     }
 
     function sendQuizResults() {
         var Characters = correctCharacterTypes;
-        console.log(Characters);
     
         $.ajax({
             url: `http://15.164.230.127:8080/quiz/result/${userId}`, 
@@ -70,8 +69,16 @@ $(document).ready(function() {
             contentType: 'application/json', 
             data: JSON.stringify(Characters),
             success: function(response) {
-                console.log("성공적으로 결과를 전송했습니다.", response);
-                localStorage.setItem('Characters' + userId,  JSON.stringify(Characters));
+                console.log("AJAX 요청 성공. 응답 데이터:", response);
+                var rankingTopFive = response.rankingTopFive;
+                var userRanking = response.userRanking;
+                console.log("localStorage에 저장하기 전 rankingTopFive:", rankingTopFive);
+                localStorage.setItem('Characters',  JSON.stringify(Characters));
+                localStorage.setItem('rankingTopFive', JSON.stringify(rankingTopFive));
+                localStorage.setItem('userRanking', JSON.stringify(userRanking));
+                console.log("localStorage에 rankingTopFive 저장 후");
+                // 페이지 이동 전 확인 로그
+                console.log("페이지 이동 직전");
                 window.location.href = 'result.html';
             },
             error: function(xhr, status, error) {
