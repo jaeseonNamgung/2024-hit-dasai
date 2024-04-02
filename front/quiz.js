@@ -71,7 +71,7 @@ $(document).ready(function() {
             data: JSON.stringify(Characters),
             success: function(response) {
                 console.log("성공적으로 결과를 전송했습니다.", response);
-                localStorage.setItem('Characters',  JSON.stringify(Characters));
+                localStorage.setItem('Characters' + userId,  JSON.stringify(Characters));
                 window.location.href = 'result.html';
             },
             error: function(xhr, status, error) {
