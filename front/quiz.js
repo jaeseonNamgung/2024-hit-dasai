@@ -22,7 +22,7 @@ $(document).ready(function() {
 
             // 답변 확인 섹션 숨기기 및 문제 섹션 표시
             $(".an").hide();
-            $(".main").show();
+            $("main").show();
 
             // 마지막 문제이면 버튼의 텍스트와 이벤트 변경
             if (currentQuizIndex === quizData.length - 1) {
@@ -56,7 +56,7 @@ $(document).ready(function() {
         $(".content p").html(quizData[currentQuizIndex].answerDescription);
 
         // 답변 확인 섹션 표시 및 문제 섹션 숨기기
-        $(".main").hide();
+        $("main").hide();
         $(".an").show();
     }
 
