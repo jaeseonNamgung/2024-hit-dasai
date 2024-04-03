@@ -7,7 +7,6 @@
   <link rel="stylesheet" href="main.css">
   <script src="https://kit.fontawesome.com/32c80bd758.js" crossorigin="anonymous"></script>
   <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
-  <!-- <script src="main.js"></script> -->
   <script src="translate.js"></script>
   <script src="main.js"></script>
   <script>
@@ -24,11 +23,11 @@
 <body>
 
   <div class="container">
-    <div class="main">
+    <main>
       <header>
         <ul class="nav">
           <li><a href="main.html"><i class="fa-solid fa-house"></i> HOME</a></li>
-          <li><a href="#" data-ko="내용" data-zh="内容">내용</a></li>
+          <li><a href="story_main.html" data-ko="내용" data-zh="内容">내용</a></li>
           <li><a href="quiz.html" data-ko="퀴즈" data-zh="测验">퀴즈</a></li>
         </ul>
         <span class="btn btn-1">
@@ -38,13 +37,13 @@
       </header>
       <section>
         <div class="character_select">
-          <img src="images/손.png" alt="Top Character" class="character top" character-name="sunwukong">
-          <img src="images/사.png" alt="Left Character" class="character left" character-name="zhubajie">
-          <img src="images/삼.png" alt="Right Character" class="character right" character-name="shawujing">
-          <img src="images/저.png" alt="Bottom Character" class="character bottom" character-name="samjang">
+          <img src="images/son.png" alt="Top Character" class="character top" character-name="sunwukong">
+          <img src="images/sha.png" alt="Left Character" class="character left" character-name="shawujing">
+          <img src="images/zhu.png" alt="Right Character" class="character right" character-name="zhubajie">
+          <img src="images/sam.png" alt="Bottom Character" class="character bottom" character-name="samjang">
         </div>
         <div class="gbtn">
-          <a href="story.html"><button class="go_btn" data-ko="보러가기" data-zh="去看">보러가기</button></a>
+          <a href="story_main.html"><button class="go_btn" data-ko="보러가기" data-zh="进入画面">보러가기</button></a>
         </div>
         <div class="popup">
           <div id="character_introduce">
@@ -60,7 +59,8 @@
           </div>
         </div>
       </section>
-    </div>
+    </main>
   </div>
+  
 </body>
 </html>

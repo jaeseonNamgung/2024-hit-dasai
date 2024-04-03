@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>결과화면 - 손오공유형</title>
+  <title>결과화면</title>
   <link rel="stylesheet" href="result.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -38,41 +38,41 @@
       </header>
       <section>
         <div class="titles">
-          <img alt="character_image" class="character_image">
+          <div><img alt="character_image" class="character_image"></div>
           <h1 class="type"></h1>
         </div>
         <div class="rank">
           <h2 class="ask">나의 전체 순위는?</h2>
           <div class="ranks">
             <div class="rank1">
-              <h1>1</h1>
-              <p id="rank_name">마치된거같아손오공</p>
-              <p class="types">손오공 유형</p>
+              <h1></h1>
+              <p class="rank_name"></p>
+              <p class="types"></p>
             </div>
             <div class="rank2">
-              <h1>2</h1>
-              <p id="rank_name">세븐틴밖에몰라요난아님</p>
-              <p class="types">손오공 유형</p>
+              <h1></h1>
+              <p class="rank_name"></p>
+              <p class="types"></p>
             </div>
             <div class="rank3">
-              <h1>3</h1>
-              <p id="rank_name">저팔계돼징</p>
-              <p class="types">저팔계 유형</p>
+              <h1></h1>
+              <p class="rank_name"></p>
+              <p class="types"></p>
             </div>
             <div class="rank4">
-              <h1>4</h1>
-              <p id="rank_name">신서유기</p>
-              <p class="types">삼장법사 유형</p>
+              <h1></h1>
+              <p class="rank_name"></p>
+              <p class="types"></p>
             </div>
             <div class="rank5">
-              <h1>5</h1>
-              <p id="rank_name">사오정이난가</p>
-              <p class="types">사오정 유형</p>
+              <h1></h1>
+              <p class="rank_name"></p>
+              <p class="types"></p>
             </div>
             <div class="rank6">
-              <h1>8</h1>
-              <p id="rank_name">배가고파요</p>
-              <p class="types">마스터 유형</p>
+              <h1></h1>
+              <p class="rank_name"></p>
+              <p class="types"></p>
             </div>
           </div>
         </div>
@@ -80,40 +80,40 @@
           <h2 class="review">나의 한마디</h2>
           <div class="users">
             <div class="user1">
-              <p id="user_name"><i class="fa-solid fa-user"></i>마치된거같아손오공 :</p>
-              <p id="ment">퀴즈 너무 쉬운 거 아니에요?</p>
+              <p id="user_name"><i class="fa-solid fa-user"></i></p>
+              <p id="ment"></p>
               <span class="btn btn-1">
                 <input type="checkbox" name="" id="swich">
                 <label for="swich"></label>
               </span>
             </div>
             <div class="user2">
-              <p id="user_name"><i class="fa-solid fa-user"></i>不要香菜 :</p>
-              <p id="ment">很有意思，爱你们</p>
+              <p id="user_name"><i class="fa-solid fa-user"></i></p>
+              <p id="ment"></p>
               <span class="btn btn-1">
                 <input type="checkbox" name="" id="swich">
                 <label for="swich"></label>
               </span>
             </div>
             <div class="user3">
-              <p id="user_name"><i class="fa-solid fa-user"></i>어렵다이거도 :</p>
-              <p id="ment">퀴즈 좀 어려운듯 ㅋ</p>
+              <p id="user_name"><i class="fa-solid fa-user"></i></p>
+              <p id="ment"></p>
               <span class="btn btn-1">
                 <input type="checkbox" name="" id="swich">
                 <label for="swich"></label>
               </span>
             </div>
             <div class="user4">
-              <p id="user_name"><i class="fa-solid fa-user"></i>냥냥 :</p>
-              <p id="ment">노잼임</p>
+              <p id="user_name"><i class="fa-solid fa-user"></i></p>
+              <p id="ment"></p>
               <span class="btn btn-1">
                 <input type="checkbox" name="" id="swich">
                 <label for="swich"></label>
               </span>
             </div>
             <div class="user5">
-              <p id="user_name"><i class="fa-solid fa-user"></i>煎饼果子 :</p>
-              <p id="ment">好饿</p>
+              <p id="user_name"><i class="fa-solid fa-user"></i></p>
+              <p id="ment"></p>
               <span class="btn btn-1">
                 <input type="checkbox" name="" id="swich">
                 <label for="swich"></label>
@@ -121,13 +121,13 @@
             </div>
           </div>
           <div class="page">
-            <img src="/images/angle-left-solid.svg" alt="">
-            <p>1</p>
-            <p>2</p>
-            <p>3</p>
-            <p>4</p>
-            <p>5</p>
-            <img src="/images/angle-right-solid.svg" alt="">
+            <img src="images/angle-left-solid.svg" id="prevPage" class="page-nav" data-nav="prev" alt="Previous">
+            <p class="page-num" data-page="1">1</p>
+            <p class="page-num" data-page="2">2</p>
+            <p class="page-num" data-page="3">3</p>
+            <p class="page-num" data-page="4">4</p>
+            <p class="page-num" data-page="5">5</p>
+            <img src="images/angle-right-solid.svg" id="nextPage" class="page-nav" data-nav="next" alt="Next">
           </div>
           <input id="user_ment" type="text" placeholder="나도 한마디 남기기!">
           <button class="push">남기기</button>

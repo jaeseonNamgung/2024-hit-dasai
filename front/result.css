@@ -21,7 +21,8 @@ header {
   padding: 20px 250px 0 0;
   margin: 0;
   display: flex;
-  width: 1100px;
+  float: left;
+  overflow: hidden;
   height: 60px;
 }
 .nav li {
@@ -44,13 +45,20 @@ section {
   width: 1200px;
   margin: auto;
 }
+.titles div {
+  /* border: 1px solid red; */
+  width: 230px;
+  height: 250px;
+  margin: auto;
+}
 .character_image {
-  width: 195px;
-  height: 330px;
+  width: 230px;
+  height: 250px;
+  /* border: 1px solid red; */
 }
 .type {
   font-size: 35px;
-  margin-top: -40px;
+  margin-top: 40px;
 }
 /* 랭크 */
 .rank {
@@ -65,6 +73,7 @@ section {
   margin-top: 10px;
   text-align: center;
   font-size: 23px;
+  font-weight: 400;
 }
 .ranks {
   overflow: hidden;
@@ -74,13 +83,13 @@ section {
 .ranks div {
   background-color: #fff;
   border-radius: 30px;
-  box-shadow: 0 0 10px #49494948;
+  box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
   display: flex;
   margin: 20px;
   align-items: center;
 }
 .ranks h1 {
-  background: #f86551;
+  background: #fab25b;
   color: #fff;
   border-radius: 50px;
   width: 55px;
@@ -90,8 +99,8 @@ section {
   margin-left: 30px;
   line-height: 35px;
 }
-#rank_name {
-  margin-left: 30px;
+.rank_name {
+  margin-left: 20px;
   font-size: 25px;
   font-weight: 300;
   line-height: 45px;
@@ -105,7 +114,7 @@ section {
   font-weight: 300;
 }
 .rank6 {
-  border: 2px solid #f86551;
+  border: 2px solid #fab25b;
 }
 
 /* 나의 한마디 */
@@ -121,6 +130,7 @@ section {
 .review {
   margin-top: 30px;
   text-align: center;
+  font-weight: 400;
 } 
 .users {
   overflow: hidden;
@@ -130,14 +140,15 @@ section {
 .users div {
   background-color: #fff;
   border-radius: 40px;
-  box-shadow: 0 0 10px #49494948;
+  box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
   display: flex;
   margin: 20px;
   align-items: center;
 }
 .users i {
-  color: #f86551;
+  color: #fab25b;
   margin-right: 10px;
+  font-size: 25px;
 }
 #user_name {
   padding: 10px;
@@ -167,7 +178,7 @@ section {
   outline: none;
   appearance: none;
   font-weight: bold;
-  box-shadow: 0 1px 5px #c1c1d2bd;
+  box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
 }
 .btn input::before,
 .btn input:after {
@@ -196,7 +207,7 @@ section {
   transition: 0.2s -0.1s;
 }
 .btn .btn-1 input:checked{
-  background: #F86551;
+  background: #fab25b;
 }
 .btn.btn-1 input:checked::before{
   color: #fff;
@@ -209,7 +220,7 @@ section {
 .btn.btn-1 input:checked + label {
   left: 25px;
   right: 65px;
-  background: #F86551;
+  background: #fab25b;
   transition: left 0.5s, right 0.4s 0.2s;
   padding: 15px;
   margin-top: 5px;
@@ -229,7 +240,7 @@ section {
 .btn.btn-1 input:not(:checked) + label {
   left: 65px;
   right: 25px;
-  background: #F86551;
+  background: #fab25b;
   transition: left 0.4s 0.2s, right 0.5s, background 0.35s -0.1s;
   padding: 15px;
   margin-top: 5px;
@@ -253,7 +264,7 @@ section {
   cursor: pointer;
 }
 .page p:hover {
-  color: #f86551;
+  color: #fab25b;
 }
 /* input */
 input[type=text] {
@@ -286,7 +297,7 @@ input:focus::placeholder {
   text-align: center;
   border: none;
   border-radius: 40px;
-  background-color: #f86551;
+  background-color: #fab25b;
   color: #fff;
 }
 .push:hover {
