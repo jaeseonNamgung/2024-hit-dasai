@@ -94,3 +94,8 @@ section {
   cursor: pointer;
   color: #fff;
 }
+.noto-serif-sc-regular {
+  font-family: "Noto Serif SC", serif;
+  font-weight: 400;
+  font-style: normal;
+}
