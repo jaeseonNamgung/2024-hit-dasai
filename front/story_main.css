@@ -34,7 +34,7 @@ header {
   font-size: 15px;
 }
 .nav li a:hover {
-  color: #f86551;
+  color: #fab25b;
   transition: 0.3s;
 }
 .btn {
@@ -51,7 +51,7 @@ header {
   outline: none;
   appearance: none;
   font-weight: bold;
-  box-shadow: 0 1px 5px #c1c1d2bd;
+  box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
 }
 .btn input::before,
 .btn input:after {
@@ -80,7 +80,7 @@ header {
   transition: 0.2s -0.1s;
 }
 .btn .btn-1 input:checked{
-  background: #F86551;
+  background: #fab25b;
 }
 .btn.btn-1 input:checked::before{
   color: #fff;
@@ -93,7 +93,7 @@ header {
 .btn.btn-1 input:checked + label {
   left: 5px;
   right: 95px;
-  background: #F86551;
+  background: #fab25b;
   transition: left 0.5s, right 0.4s 0.2s;
 }
 .btn.btn-1 input:not(:checked){
@@ -111,7 +111,7 @@ header {
 .btn.btn-1 input:not(:checked) + label {
   left: 80px;
   right: 30px;
-  background: #F86551;
+  background: #fab25b;
   transition: left 0.4s 0.2s, right 0.5s, background 0.35s -0.1s;
 }
 section {
@@ -125,20 +125,26 @@ section {
   height: 50px;
   margin: 20px;
 }
+.goq button:hover {
+  background-color: #fab25b;
+  color: #fff;
+  cursor: pointer;
+}
 section button {
   border: none;
   background-color: #f0f0f3;
   border-radius: 40px;
-  box-shadow: 0 0 10px #7474744c;
+  box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
   width: 200px;
   height: 50px;
   font-family: "omnigothic", sans-serif;
   font-weight: 400;
 }
+
 .tabs > p {
   width: 940px;
   height: 95px;
-  background-color: #f86551;
+  background-color: #fab25b;
   color: #fff;
   border-radius: 30px;
   padding: 40px;
@@ -167,11 +173,11 @@ section button {
   transition: background-color 0.3s;
 }
 .select li:hover {
-  color: #f86551;
-  border: 1px solid #f86551;
+  color: #fab25b;
+  border: 1px solid #fab25b;
 }
 .select li.active {
-  background-color: #f86551;
+  background-color: #fab25b;
   color: #fff;
 }
 
@@ -189,7 +195,7 @@ section button {
 
 /* 답안이 1개 + 이미지 */
 .wen {
-  background-color: #f86551;
+  background-color: #fab25b;
   color: #fff;
   border-radius: 40px 40px 0 40px;
   padding: 25px 40px;
