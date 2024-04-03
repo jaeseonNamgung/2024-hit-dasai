@@ -15,9 +15,35 @@ a {
   text-decoration: none;
 }
 
+@keyframes bird {
+  0%{
+    background-image:url("./images/bird1.png") ;
+  }
+  20%{
+    background-image:url("./images/bird2.png") ;
+  }
+  40%{
+    background-image:url("./images/bird3.png") ;
+  }
+  60%{
+    background-image:url("./images/bird4.png") ;
+  }
+  80%{
+    background-image:url("./images/bird5.png") ;
+  }
+  100%{
+    background-image:url("./images/bird6.png") ;
+  }
+
+}
 .container{
-  background-image: url("./images/img.png") ;
+  background-image: url("images/bird1.png") ;
+  background-blend-mode: multiply;
+  background-color: #f3f3f3;
   background-repeat: no-repeat;
+  animation-name: bird;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
 }
 header {
   height: 60px;
