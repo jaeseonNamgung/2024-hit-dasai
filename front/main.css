@@ -6,9 +6,10 @@ body {
   font-weight: 400;
   font-style: normal;
   background-image: url(images/back3.webp);
-  background-position: -60px 0;
+  background-repeat: no-repeat;
+  background-size: cover;
   color: #000;
-  position: relative;
+  margin: 0;
 }
 a {
   color: #000;
@@ -16,7 +17,10 @@ a {
 }
 header {
   height: 60px;
+  width: 1400px;
+  margin: auto;
   overflow: hidden;
+  z-index: 10;
 }
 .nav {
   list-style: none;
@@ -118,17 +122,14 @@ header {
   transition: left 0.4s 0.2s, right 0.5s, background 0.35s -0.1s;
 }
 section {
-  /* position: relative; */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 730px;
-  width: 1660px;
+  width: 1400px;
+  margin: auto;
 }
 .character_select {
-  width: 700px;
+  width: 1400px;
   height: 700px;
-  position: absolute;
+  margin: auto;
+  position: relative;
 }
 .character_select img {
   width: 350px;
@@ -142,22 +143,22 @@ section {
 }
 .top {
   top: 50px;
-  right: 175px;
+  right: 525px;
 }
 .bottom {
   bottom: 0;
-  left: 175px;
+  left: 525px;
 }
 .right {
   top: 200px;
-  right: 0;
+  right: 350px;
 }
 .left {
   top: 200px;
-  left: 0;
+  left: 350px;
 }
 .gbtn {
-  margin-top: 850px;
+  text-align: center;
 }
 .go_btn {
   width: 280px;
@@ -179,7 +180,7 @@ section {
 }
 
 /* popup */
-.popup {
+/* .popup {
   position: absolute;
   background-color: #00000069;
   width: 1700px;
@@ -229,4 +230,4 @@ section {
 .character_name {
   background-color: #fab25b;
   color: #fff;
-}
+} */
