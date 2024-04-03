@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 @RequiredArgsConstructor
 public class StoryController {
@@ -17,7 +19,7 @@ public class StoryController {
     private final StoryService storyService;
 
     @GetMapping("/story/{storyId}/{language}")
-    public ResponseEntity<StoryDto.StoryResponseDto> getStory(@PathVariable String language, @PathVariable Long storyId) {
+    public ResponseEntity<List<StoryDto.StoryResponseDto>> getStory(@PathVariable String language, @PathVariable Long storyId) {
         StoryDto.StoryRequestDto storyRequestDto = StoryDto.StoryRequestDto.builder()
                 .storyId(storyId)
                 .language(Language.fromString(language))
@@ -26,7 +28,7 @@ public class StoryController {
         return ResponseEntity.ok(storyService.getStory(storyRequestDto));
     }
 
-    @GetMapping("/timeline/{storyTitle}/NONE/{language}")
+  /*  @GetMapping("/timeline/{storyTitle}/NONE/{language}")
     public ResponseEntity<StoryDto.StoryResponseDto> getTimelineStoryContent(@PathVariable String language, @PathVariable String storyTitle) {
         StoryDto.StoryRequestDto storyRequestDto = StoryDto.StoryRequestDto.builder()
                 .storyTitle(storyTitle)
@@ -34,7 +36,7 @@ public class StoryController {
                 .build();
 
         return ResponseEntity.ok(storyService.getStory(storyRequestDto));
-    }
+    }*/
 
     @GetMapping("/character/{characterType}/{language}")
     public StoryDto.StoryResponseDto getCharacterStoryContent(@PathVariable String language, @PathVariable String characterType) {
