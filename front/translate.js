@@ -10,6 +10,7 @@ $(document).ready(function() {
       $('[data-ko-placeholder]').each(function() {
         $(this).attr('placeholder', $(this).data('ko-placeholder'));
       });
+      $('body').removeClass('noto-serif-sc-regular');
     } else {
       // 체크박스가 해제되어 있으면 기본으로 중국어로 설정
       $('[data-zh]').each(function() {
@@ -19,6 +20,7 @@ $(document).ready(function() {
       $('[data-zh-placeholder]').each(function() {
         $(this).attr('placeholder', $(this).data('zh-placeholder'));
       });
+      $('body').addClass('noto-serif-sc-regular');
     }
   }
 
@@ -42,4 +44,10 @@ $(document).ready(function() {
 
   // 페이지 로드 시 언어 설정 적용
   loadLanguageSetting();
+
+  function loadLanguageSetting() {
+    var preferredLanguage = localStorage.getItem('preferredLanguage');
+    $('#swich').prop('checked', preferredLanguage === 'ko');
+    updateLanguageAndStyle();
+  }
 });
