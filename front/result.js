@@ -5,14 +5,16 @@ function characterResult(){
         sunwukong: '손오공',
         samjang: '삼장법사',
         shawujing: '사오정',
-        zhubajie: '저팔계'
+        zhubajie: '저팔계',
+        bailongma: '백룡마'
     };
     var imageMapping = {
         sunwukong: 'images/손.png',
         samjang: 'images/삼.png',
         shawujing: 'images/사.png',
         zhubajie: 'images/저.png',
-        서유기: 'images/.png' // 동률인 경우 표시할 이미지
+        bailongma: 'images/.png', //추가해야 해요
+        서유기: 'images/.png' //추가해야 해요
     };
 
     console.log(Characters); //데이터 잘 넘겨왔나 확인
@@ -148,6 +150,10 @@ $(document).ready(function() {
                             <div class="user">
                                 <p id="user_name"><i class="fa-solid fa-user"></i> ${comment.nickName} :</p>
                                 <p id="ment">${comment.content}</p>
+                                <span class="btn btn-1">
+                                    <input type="checkbox" name="" id="swich">
+                                    <label for="swich"></label>
+                                </span>
                             </div>`;
                         $(".reviews .users").append(commentHtml);
                     }
@@ -182,5 +188,33 @@ $(document).ready(function() {
             }
         });
     }
+
+    $('.translate-switch').change(function() {
+        if(this.checked) {
+            var targetLang = $(this).data('target-lang');
+            // 댓글 내용 가져오기
+            var commentContent = $(`.ment[data-comment-id="${commentId}"]`).text();
+
+            $.ajax({
+                url: `http://15.164.230.127:8080/comment/translate/kr`,
+                type: 'POST',
+                contentType: 'application/json',
+                // 댓글 ID, 내용, 그리고 목표 언어를 함께 전송
+                data: JSON.stringify({
+                    content: commentContent,
+                    targetLang: targetLang
+                }),
+                success: function(response) {
+                    console.log(response)
+                    // 번역 성공 시, 해당 코멘트의 텍스트를 업데이트
+                    $(`.ment[data-comment-id="${commentId}"]`).text(response.translatedText);
+                },
+                error: function(xhr, status, error) {
+                    console.error("번역 실패:", error);
+                    alert('코멘트 번역에 실패했습니다.');
+                }
+            });
+        }
+    });
 
 });
