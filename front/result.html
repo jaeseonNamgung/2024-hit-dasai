@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>결과화면</title>
+  <link rel="stylesheet" href="result.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@200;400;500;700;900&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/32c80bd758.js" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+  <script src="translate.js"></script>
+  <script src="quiz_nickname.js"></script>
+	<script src="quiz.js"></script>
+  <script src="result.js"></script>
+  <script>
+    (function(d) {
+      var config = {
+        kitId: 'wts0fmj',
+        scriptTimeout: 3000,
+        async: true
+      },
+      h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+    })(document);
+  </script>
+</head>
+<body>
+
+  <div class="container">
+    <main>
+      <header>
+        <ul class="nav">
+          <li><a href="main.html"><i class="fa-solid fa-house"></i> HOME</a></li>
+          <li><a href="story_main.html">내용</a></li>
+          <li><a href="quiz.html">퀴즈</a></li>
+        </ul>
+      </header>
+      <section>
+        <div class="titles">
+          <div><img alt="character_image" class="character_image"></div>
+          <h1 class="type"></h1>
+        </div>
+        <div class="rank">
+          <h2 class="ask">나의 전체 순위는?</h2>
+          <div class="ranks">
+            <div class="rank1">
+              <h1></h1>
+              <p class="rank_name"></p>
+              <p class="types"></p>
+            </div>
+            <div class="rank2">
+              <h1></h1>
+              <p class="rank_name"></p>
+              <p class="types"></p>
+            </div>
+            <div class="rank3">
+              <h1></h1>
+              <p class="rank_name"></p>
+              <p class="types"></p>
+            </div>
+            <div class="rank4">
+              <h1></h1>
+              <p class="rank_name"></p>
+              <p class="types"></p>
+            </div>
+            <div class="rank5">
+              <h1></h1>
+              <p class="rank_name"></p>
+              <p class="types"></p>
+            </div>
+            <div class="rank6">
+              <h1></h1>
+              <p class="rank_name"></p>
+              <p class="types"></p>
+            </div>
+          </div>
+        </div>
+        <div class="reviews">
+          <h2 class="review">나의 한마디</h2>
+          <div class="users">
+            <div class="user1">
+              <p id="user_name"><i class="fa-solid fa-user"></i></p>
+              <p id="ment"></p>
+              <span class="btn btn-1">
+                <input type="checkbox" name="" id="swich">
+                <label for="swich"></label>
+              </span>
+            </div>
+            <div class="user2">
+              <p id="user_name"><i class="fa-solid fa-user"></i></p>
+              <p id="ment"></p>
+              <span class="btn btn-1">
+                <input type="checkbox" name="" id="swich">
+                <label for="swich"></label>
+              </span>
+            </div>
+            <div class="user3">
+              <p id="user_name"><i class="fa-solid fa-user"></i></p>
+              <p id="ment"></p>
+              <span class="btn btn-1">
+                <input type="checkbox" name="" id="swich">
+                <label for="swich"></label>
+              </span>
+            </div>
+            <div class="user4">
+              <p id="user_name"><i class="fa-solid fa-user"></i></p>
+              <p id="ment"></p>
+              <span class="btn btn-1">
+                <input type="checkbox" name="" id="swich">
+                <label for="swich"></label>
+              </span>
+            </div>
+            <div class="user5">
+              <p id="user_name"><i class="fa-solid fa-user"></i></p>
+              <p id="ment"></p>
+              <span class="btn btn-1">
+                <input type="checkbox" name="" id="swich">
+                <label for="swich"></label>
+              </span>
+            </div>
+          </div>
+          <div class="page">
+            <img src="images/angle-left-solid.svg" id="prevPage" class="page-nav" data-nav="prev" alt="Previous">
+            <p class="page-num" data-page="1">1</p>
+            <p class="page-num" data-page="2">2</p>
+            <p class="page-num" data-page="3">3</p>
+            <p class="page-num" data-page="4">4</p>
+            <p class="page-num" data-page="5">5</p>
+            <img src="images/angle-right-solid.svg" id="nextPage" class="page-nav" data-nav="next" alt="Next">
+          </div>
+          <input id="user_ment" type="text" placeholder="나도 한마디 남기기!">
+          <button class="push">남기기</button>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  
+</body>
+</html>
