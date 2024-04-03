@@ -9,29 +9,36 @@ body {
   font-weight: 400;
   font-style: normal;
   color: #000;
-  background-color: #f3f3f3;
+  text-align: center;
+}
+main {
+  /* height: 100vh;
+  align-items: center;
+  display: flex;
+  justify-content: center; */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
 }
 main img {
   width: 500px;
   height: 500px;
-  margin-top: 200px;
-  margin-left: 100px;
+  /* position: absolute; */
+  /* left: 200px; */
 }
 .type {
-  /* border: 1px solid red; */
-  width: 750px;
-  font-size: 60px;
+  border: 1px solid red;
+  font-size: 55px;
   font-weight: 600;
-  float: right;
-  margin-top: 250px;
-  margin-right: 300px;
+  /* position: absolute; */
+  /* left: 700px; */
 }
 .ment {
-  /* border: 1px solid blue; */
+  border: 1px solid blue;
   padding: 15px;
-  width: 500px;
-  float: right;
-  margin-top: -350px;
-  margin-right: 550px;
-  font-size: 30px;
+  font-size: 25px;
+  /* position: absolute; */
+  /* left: 600px; */
+  /* bottom: 280px; */
 }
