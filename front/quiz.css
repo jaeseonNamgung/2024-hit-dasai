@@ -7,6 +7,8 @@ body {
   font-style: normal;
   background-color: #f3f3f3;
   color: #000;
+  margin: 0;
+  padding: 0;
 }
 a {
   color: #000;
@@ -14,7 +16,11 @@ a {
 }
 header {
   height: 60px;
+  width: 1400px;
+  margin: auto;
   overflow: hidden;
+  z-index: 10;
+  /* border: 1px solid red; */
 }
 .nav {
   list-style: none;
@@ -117,12 +123,14 @@ header {
 section {
   text-align: center;
   /* border: 1px solid red; */
-  width: 1660px;
-  height: 750px;
+  height: 800px;
+  width: 1400px;
+  margin: auto;
 }
 .quiz_logo img {
   width: 202px;
   height: 198px;
+  /* border: 1px solid red; */
 }
 .quiz_logo h1 {
   font-size: 40px;
@@ -150,12 +158,9 @@ section {
   font-size: 25px;
   box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
 }
-.login input:focus::placeholder {
+.login input:focur::placeholder {
   opacity: 0;
   visibility: hidden;
-}
-.login input:focus {
-  border: 2px solid #fab25b;
 }
 #go_quiz {
   width: 285px;
