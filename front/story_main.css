@@ -62,11 +62,11 @@ header {
   color: #000000;
 }
 .btn input:before{
-  content: "KR";
+  content: "CN";
   left: 31px;
 }
 .btn input::after{
-  content: "CN";
+  content: "KR";
   right: 31px;
 }
 .btn label {
@@ -118,7 +118,7 @@ section {
   text-align: center;
   border: 1px solid rgba(255, 0, 0, 0);
   width: auto;
-  height: 600px;
+  height: 800px;
 }
 .goq {
   width: 200px;
@@ -140,9 +140,7 @@ section button {
   font-family: "omnigothic", sans-serif;
   font-weight: 400;
 }
-.tabs{
-  overflow-y: auto;
-}
+
 .tabs > p {
   width: 940px;
   height: 95px;
@@ -154,7 +152,7 @@ section button {
   font-size: 20px;
   font-weight: 300;
   margin: auto;
-  margin-top: 200px;
+  margin-top: 300px;
 }
 .select {
   list-style: none;
@@ -182,13 +180,14 @@ section button {
   background-color: #fab25b;
   color: #fff;
 }
+
+/* tab */
 .tabs > div {
   display: none;
   margin: 20px;
   width: auto;
-  height: 480px;
-  overflow-y: auto;
-  padding-bottom: 10px;
+  height: 700px;
+  overflow: hidden;
 }
 .tabs > div.active {
   display: block;
@@ -196,29 +195,28 @@ section button {
 
 /* 답안이 1개 + 이미지 */
 .wen {
-  display: block;
   background-color: #fab25b;
   color: #fff;
   border-radius: 40px 40px 0 40px;
   padding: 25px 40px;
   float: right;
-  margin: 20px 10px;
+  margin: 10px;
 }
 .da {
   background-color: #fff;
   border-radius: 0 40px 40px 40px;
-  padding:30px;
-  margin: 20px 10px;
+  padding: 30px;
+  margin-top: 90px;
+  margin-left: 10px;
   width: 800px;
   text-align: left;
-  clear: both;
 }
 .story_img {
   background-color: #fff;
   width: 450px;
   height: 450px;
   border-radius: 0 40px 40px 40px;
-  margin: 20px 10px;
+  margin-left: 10px;
 }
 .story_img img {
   width: 400px;
@@ -227,12 +225,8 @@ section button {
   margin-left: 25px;
   margin-top: 25px;
 }
-.noto-serif-sc-regular {
-  font-family: "Noto Serif SC", serif;
-  font-weight: 400;
-  font-style: normal;
-}
-/* 답안이 2개 + 이미지
+
+/* 답안이 2개 + 이미지 */
 #tab2, #tab3 {
   overflow: hidden;
   overflow-y: scroll;
@@ -272,4 +266,4 @@ section button {
   float: left;
   margin-left: 25px;
   margin-top: 25px;
-} */
+}
