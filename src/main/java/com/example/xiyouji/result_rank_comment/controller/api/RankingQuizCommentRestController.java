@@ -62,7 +62,7 @@ public class RankingQuizCommentRestController {
         return ResponseEntity.ok(commentService.getComments(pageable));
     }
 
-    @GetMapping("/comment/translate/{language}")
+    @PostMapping("/comment/translate/{language}")
     public ResponseEntity<TranslateResponse> getCommentTranslate(
             @PathVariable(name = "language") String language,
             @RequestBody CommentRequest commentRequest
