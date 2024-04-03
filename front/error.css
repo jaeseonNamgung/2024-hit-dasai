@@ -1,0 +1,37 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  /* border: 1px solid red; */
+  margin: 0;
+  padding: 0;
+  font-family: "omnigothic", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: #000;
+  background-color: #f3f3f3;
+}
+main img {
+  width: 500px;
+  height: 500px;
+  margin-top: 200px;
+  margin-left: 100px;
+}
+.type {
+  /* border: 1px solid red; */
+  width: 750px;
+  font-size: 60px;
+  font-weight: 600;
+  float: right;
+  margin-top: 250px;
+  margin-right: 300px;
+}
+.ment {
+  /* border: 1px solid blue; */
+  padding: 15px;
+  width: 500px;
+  float: right;
+  margin-top: -350px;
+  margin-right: 550px;
+  font-size: 30px;
+}
