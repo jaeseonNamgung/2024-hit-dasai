@@ -151,9 +151,9 @@ $(document).ready(function() {
                                 <p id="user_name"><i class="fa-solid fa-user"></i> ${comment.nickName} :</p>
                                 <p id="ment">${comment.content}</p>
                                 <span class="btn btn-1">
-                                    <input type="checkbox" name="" id="swich">
-                                    <label for="swich"></label>
-                                </span>
+                                <input type="checkbox" name="" id="swich">
+                                <label for="swich"></label>
+                            </span>
                             </div>`;
                         $(".reviews .users").append(commentHtml);
                     }
