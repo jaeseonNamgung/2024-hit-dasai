@@ -9,6 +9,7 @@ public enum Characters {
     사오정("shawujing", "沙悟净", "사오정"),
     저팔계("zhubajie", "猪八戒", "저팔계"),
     NONE("NONE", "无", "NONE"),
+    백룡마("bailongma", "白龙马", "백룡마"),
     ;
 
     private final String value;

@@ -12,6 +12,9 @@ import com.example.xiyouji.story.vo.Story;
 import com.example.xiyouji.story.vo.StoryContent;
 import com.example.xiyouji.story.vo.StoryImage;
 
+import com.example.xiyouji.type.Characters;
+import com.example.xiyouji.type.Language;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -30,8 +33,10 @@ public class StoryService {
         Story story = storyRepository.getStoryByIdAndLanguage(storyRequestDto.getStoryId(), storyRequestDto.getLanguage())
                 .orElseThrow(() -> new RestApiException(StoryErrorCode.STORY_NOT_EXIST));
 
+
         return story.toStoryResponseDtos();
     }
+
 
     private List<String> getStoryImageUrls(Story story) {
         List<StoryImage> storyImages = story.getStoryImages();
