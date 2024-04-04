@@ -144,6 +144,7 @@ section {
   display: flex;
   margin: 20px;
   align-items: center;
+  padding: 0 30px;
 }
 #user_name i {
   color: #fab25b;
@@ -154,13 +155,12 @@ section {
   /* border: 1px solid red; */
   color: #fab25b;
   font-size: 25px;
-  margin-left: 700px;
-  
+  margin-left: auto;
+  float: left;
 }
 #user_name {
   padding: 10px;
   font-size: 20px;
-  margin-left: 30px;
 }
 #ment {
   font-size: 20px;
@@ -168,7 +168,7 @@ section {
 }
 
 /* 번역토글 */
-.btn {
+/* .btn {
   position: relative;
   height: 65px;
   float: right;
@@ -251,7 +251,7 @@ section {
   transition: left 0.4s 0.2s, right 0.5s, background 0.35s -0.1s;
   padding: 15px;
   margin-top: 5px;
-}
+} */
 
 /* 페이지 수 (추가) */
 .page {
@@ -314,11 +314,8 @@ input:focus::placeholder {
   background-color: #c9c9c9;
   cursor: pointer;
 }
-<<<<<<< HEAD
-=======
 .noto-serif-sc-regular {
   font-family: "Noto Serif SC", serif;
   font-weight: 400;
   font-style: normal;
 }
->>>>>>> f4cac406c39eef5cd3b038251adc09ff26033126

@@ -41,9 +41,9 @@ function characterResult(){
 
     // 가장 높은 빈도를 가진 캐릭터가 여러 개인지 확인
     var mostFrequentCharacters = sortedCharacters.filter(character => character[1] === highestFrequency);
-
+    var preferredLanguage = localStorage.getItem('preferredLanguage');
     var resultText, imagePath;
-    if (language === '중국어') {
+    if (preferredLanguage === '중국어') {
         // 중국어 선택 시 사용할 텍스트와 이미지 경로
         if (mostFrequentCharacters.length > 1) {
             resultText = "西游记大师"; // 중국어로 "서유기 마스터"
@@ -168,13 +168,10 @@ $(document).ready(function() {
                 response.content.forEach(function(comment, index) {
                     if (index < 5) { // 서버에서 더 많은 데이터를 반환하는 경우가 있어도 최대 5개만 표시
                         var commentHtml = `
-                            <div class="user">
+                            <div class="user_list">
                                 <p id="user_name"><i class="fa-solid fa-user"></i> ${comment.nickName} :</p>
                                 <p id="ment">${comment.content}</p>
-                                <span class="btn btn-1">
-                                <input type="checkbox" name="" id="swich">
-                                <label for="swich"></label>
-                            </span>
+                                <a href="#"><i class="fa-solid fa-retweet"></i></a>
                             </div>`;
                         $(".reviews .users").append(commentHtml);
                     }
