@@ -4,7 +4,7 @@ $(document).ready(function() {
     return $('.btn input[type="checkbox"]').is(":checked") ? 'kr' : 'cn';
   }
 
-  var language = getCurrentLanguage(); 
+//   var language = getCurrentLanguage(); 
 
 
     $('.select li').click(function() {

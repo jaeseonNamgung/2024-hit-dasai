@@ -1,7 +1,14 @@
 function characterResult(){
     var Characters = JSON.parse(localStorage.getItem('Characters'));
     console.log("캐릭터 결과" + Characters)
-    var nameMapping = {
+    var nameMappingCN = {
+        sunwukong: '孙悟空',
+        samjang: '唐僧',
+        shawujing: '沙悟净',
+        zhubajie: '猪八戒',
+        bailongma: '白龙马'
+    };
+    var nameMappingKR = {
         sunwukong: '손오공',
         samjang: '삼장법사',
         shawujing: '사오정',
@@ -36,13 +43,26 @@ function characterResult(){
     var mostFrequentCharacters = sortedCharacters.filter(character => character[1] === highestFrequency);
 
     var resultText, imagePath;
-    if (mostFrequentCharacters.length > 1) {
-        resultText = "서유기 마스터";
-        imagePath = imageMapping['서유기']; // 동률인 경우 사용할 이미지
+    if (language === '중국어') {
+        // 중국어 선택 시 사용할 텍스트와 이미지 경로
+        if (mostFrequentCharacters.length > 1) {
+            resultText = "西游记大师"; // 중국어로 "서유기 마스터"
+            imagePath = imageMapping['西游记']; // 중국어 동률인 경우 사용할 이미지
+        } else {
+            var characterKey = mostFrequentCharacters[0][0]; // 가장 많이 나온 캐릭터의 키
+            resultText = mostFrequentCharacters.length > 0 ? nameMappingCN[characterKey] + " 专家" : "无结果"; // 중국어로 "전문가", "결과 없음"
+            imagePath = mostFrequentCharacters.length > 0 ? imageMapping[characterKey] : ""; // 해당 캐릭터의 이미지 경로
+        }
     } else {
-        var characterKey = mostFrequentCharacters[0][0]; // 가장 많이 나온 캐릭터의 키
-        resultText = mostFrequentCharacters.length > 0 ? nameMapping[characterKey] + " 전문가" : "결과 없음";
-        imagePath = mostFrequentCharacters.length > 0 ? imageMapping[characterKey] : ""; // 해당 캐릭터의 이미지 경로
+        // 기존 로직(한국어 또는 기타 언어)
+        if (mostFrequentCharacters.length > 1) {
+            resultText = "서유기 마스터";
+            imagePath = imageMapping['서유기']; // 동률인 경우 사용할 이미지
+        } else {
+            var characterKey = mostFrequentCharacters[0][0]; // 가장 많이 나온 캐릭터의 키
+            resultText = mostFrequentCharacters.length > 0 ? nameMappingKR[characterKey] + " 전문가" : "결과 없음";
+            imagePath = mostFrequentCharacters.length > 0 ? imageMapping[characterKey] : ""; // 해당 캐릭터의 이미지 경로
+        }
     }
 
     // HTML 업데이트
@@ -60,6 +80,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var userRanking = JSON.parse(localStorage.getItem('userRanking')); // 현재 사용자의 순위 정보
     var isInTopFive = false;
     var userRankIndex = -1; // 사용자가 상위 5위 안에 있을 경우 그 위치를 저장
+    
 
     // 상위 5위 순위 표시 로직 및 사용자 위치 확인
     rankingTopFive.forEach(function(rank, index) {
