@@ -23,7 +23,10 @@ repositories {
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-redis'
+
     // 로컬
+
+
     implementation 'it.ozimov:embedded-redis:0.7.2'
     implementation 'com.fasterxml.jackson.core:jackson-databind:2.13.0'
     implementation 'com.squareup.okhttp3:okhttp:5.0.0-alpha.9'
@@ -35,6 +38,10 @@ dependencies {
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     implementation 'com.fasterxml.jackson.core:jackson-databind:2.16.1'
+
+
+    // 언어감지
+    implementation 'com.optimaize.languagedetector:language-detector:0.6'
 
     // 데이터 베이스 테스트 용으로 사용
     runtimeOnly 'com.h2database:h2'

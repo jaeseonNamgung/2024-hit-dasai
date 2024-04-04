@@ -11,7 +11,7 @@ import lombok.RequiredArgsConstructor;
 public class StoryImage {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @ManyToOne
@@ -21,8 +21,6 @@ public class StoryImage {
 
     private Integer paragraphNum;
 
-    private final String fileDir =  "/front/images/";
-
     @Builder
     public StoryImage(Long id, Story story, String filename, Integer paragraphNum) {
         this.id = id;
@@ -31,5 +29,5 @@ public class StoryImage {
         this.paragraphNum = paragraphNum;
     }
 
-    public String getFullPath() { return fileDir + filename; }
+    public String getFullPath() { return "/front/images/" + filename; }
 }
