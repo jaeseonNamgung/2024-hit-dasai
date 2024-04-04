@@ -1,5 +1,6 @@
 package com.example.xiyouji.result_rank_comment.controller.api;
 
+import com.example.xiyouji.language.CommentLanguageDetector;
 import com.example.xiyouji.result_rank_comment.dto.*;
 import com.example.xiyouji.result_rank_comment.service.CommentService;
 import com.example.xiyouji.result_rank_comment.dto.CommentResponse;
@@ -25,6 +26,8 @@ public class RankingQuizCommentRestController {
     private final RankingQuizService rankingQuizService;
     private final CommentService commentService;
     private final BaiduTranslator translator;
+
+    private final CommentLanguageDetector commentLanguageDetector;
 
 
     @PostMapping("/quiz/result/{userId}")
@@ -62,18 +65,28 @@ public class RankingQuizCommentRestController {
         return ResponseEntity.ok(commentService.getComments(pageable));
     }
 
-    @PostMapping("/comment/translate/{language}")
+    @PostMapping("/comment/translate")
     public ResponseEntity<TranslateResponse> getCommentTranslate(
-            @PathVariable(name = "language") String language,
             @RequestBody CommentRequest commentRequest
-    ) throws JsonProcessingException {
-        Language languageType = Language.fromString(language);
+    ) {
+        Language languageType = commentLanguageDetector.detectLanguage(commentRequest.comment());
 
-        String translationResult = languageType.getValue_baidu().equals("kor") ?
+        Language targetLanguageType = determineTargetLanguage(languageType);
+
+        String translationResult = translator.translate(commentRequest.comment(), languageType, targetLanguageType);
+
+       /* String translationResult = languageType.getValue_baidu().equals("kor") ?
                 translator.translate(commentRequest.comment(), Language.CN, Language.KR) :
-                translator.translate(commentRequest.comment(), Language.KR, Language.CN);
+                translator.translate(commentRequest.comment(), Language.KR, Language.CN);*/
 
         return ResponseEntity.ok(TranslateResponse.of(translationResult));
+    }
+
+    private Language determineTargetLanguage(Language language) {
+        if (Language.EN.equals(language) || Language.KR.equals(language)) {
+            return Language.CN;
+        }
+        return Language.KR;
     }
 }
 

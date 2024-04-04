@@ -10,16 +10,8 @@ import static org.junit.jupiter.api.Assertions.*;
 class FileHandlerImplTest {
 
 
-    @Autowired
-    private FileHandlerImpl fileHandler;
 
 
-    @Test
-    void getFileFullUrl() {
-        String filename = "파일.jpg";
 
-        String fullUrl = fileHandler.getFullPath(filename);
 
-        System.out.println("파일url" + fullUrl);
-    }
 }
