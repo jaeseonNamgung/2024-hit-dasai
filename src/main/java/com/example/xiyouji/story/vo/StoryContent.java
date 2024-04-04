@@ -1,6 +1,6 @@
 package com.example.xiyouji.story.vo;
 
-import com.example.xiyouji.store.UploadFile;
+
 import jakarta.persistence.*;
 import lombok.Builder;
 import lombok.Getter;
