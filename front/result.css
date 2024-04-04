@@ -314,3 +314,11 @@ input:focus::placeholder {
   background-color: #c9c9c9;
   cursor: pointer;
 }
+<<<<<<< HEAD
+=======
+.noto-serif-sc-regular {
+  font-family: "Noto Serif SC", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+>>>>>>> f4cac406c39eef5cd3b038251adc09ff26033126

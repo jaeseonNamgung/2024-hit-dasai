@@ -2,15 +2,16 @@ package com.example.xiyouji.story.service;
 
 import com.example.xiyouji.exception.RestApiException;
 import com.example.xiyouji.exception.impl.StoryErrorCode;
-import com.example.xiyouji.store.FileConvert;
-import com.example.xiyouji.store.FileHandler;
-import com.example.xiyouji.store.InMemoryMultipartFile;
-import com.example.xiyouji.store.UploadFile;
+
 import com.example.xiyouji.story.dto.StoryDto;
 import com.example.xiyouji.story.repository.StoryRepository;
 import com.example.xiyouji.story.vo.Story;
+import com.example.xiyouji.story.vo.StoryContent;
 import com.example.xiyouji.story.vo.StoryImage;
-import kotlin.collections.EmptyList;
+
+import com.example.xiyouji.type.Characters;
+import com.example.xiyouji.type.Language;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -23,16 +24,16 @@ public class StoryService {
 
     private final StoryRepository storyRepository;
 
-    private final FileHandler fileHandler;
 
-    public StoryDto.StoryResponseDto getStory(StoryDto.StoryRequestDto storyRequestDto) {
+
+    public List<StoryDto.StoryResponseDto> getStory(StoryDto.StoryRequestDto storyRequestDto) {
         Story story = storyRepository.getStoryByIdAndLanguage(storyRequestDto.getStoryId(), storyRequestDto.getLanguage())
                 .orElseThrow(() -> new RestApiException(StoryErrorCode.STORY_NOT_EXIST));
 
-        List<String> fileNames = getStoryImageUrls(story);
 
-        return story.toStoryResponseDto(fileHandler.getFullPaths(fileNames));
+        return story.toStoryResponseDtos();
     }
+
 
     private List<String> getStoryImageUrls(Story story) {
         List<StoryImage> storyImages = story.getStoryImages();
