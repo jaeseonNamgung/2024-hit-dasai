@@ -145,10 +145,17 @@ section {
   margin: 20px;
   align-items: center;
 }
-.users i {
+#user_name i {
   color: #fab25b;
   margin-right: 10px;
   font-size: 25px;
+}
+.users a {
+  /* border: 1px solid red; */
+  color: #fab25b;
+  font-size: 25px;
+  margin-left: 700px;
+  
 }
 #user_name {
   padding: 10px;
