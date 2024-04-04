@@ -1,17 +1,12 @@
 package com.example.xiyouji.story.vo;
 
 
-import com.example.xiyouji.store.FileConvert;
-import com.example.xiyouji.store.InMemoryMultipartFile;
-import com.example.xiyouji.store.impl.FileHandlerImpl;
 import com.example.xiyouji.story.dto.StoryDto;
 import com.example.xiyouji.type.Characters;
 import com.example.xiyouji.type.Language;
+import io.lettuce.core.dynamic.annotation.CommandNaming;
 import jakarta.persistence.*;
-import lombok.AccessLevel;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.Collections;
 import java.util.List;
@@ -20,9 +15,8 @@ import java.util.stream.IntStream;
 
 @Entity
 @Getter
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@RequiredArgsConstructor
 public class Story {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
