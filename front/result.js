@@ -43,7 +43,7 @@ function characterResult(){
     var mostFrequentCharacters = sortedCharacters.filter(character => character[1] === highestFrequency);
     var preferredLanguage = localStorage.getItem('preferredLanguage');
     var resultText, imagePath;
-    if (preferredLanguage === '중국어') {
+    if (preferredLanguage === 'cn') {
         // 중국어 선택 시 사용할 텍스트와 이미지 경로
         if (mostFrequentCharacters.length > 1) {
             resultText = "西游记大师"; // 중국어로 "서유기 마스터"
@@ -53,7 +53,7 @@ function characterResult(){
             resultText = mostFrequentCharacters.length > 0 ? nameMappingCN[characterKey] + " 专家" : "无结果"; // 중국어로 "전문가", "결과 없음"
             imagePath = mostFrequentCharacters.length > 0 ? imageMapping[characterKey] : ""; // 해당 캐릭터의 이미지 경로
         }
-    } else {
+    } else if(preferredLanguage === 'kr'){
         // 기존 로직(한국어 또는 기타 언어)
         if (mostFrequentCharacters.length > 1) {
             resultText = "서유기 마스터";
@@ -66,9 +66,9 @@ function characterResult(){
     }
 
     // HTML 업데이트
-    if (preferredLanguage === '중국어') {
+    if (preferredLanguage === 'cn') {
         document.querySelector(".type").textContent = "你是 " + resultText + "！";
-    } else {
+    } else if(preferredLanguage === 'kr') {
         // 기존 한국어 또는 다른 언어 처리 로직
         document.querySelector(".type").textContent = "당신은 " + resultText + "입니다!";
     }
@@ -117,12 +117,27 @@ document.addEventListener('DOMContentLoaded', function() {
         rank6Element.style.display = 'none'; // 사용자가 상위 5위 안에 있으면 rank6 숨김
     }
 });
+
+
+
 $(document).ready(function() {
     loadComments(currentPage);
     setupPagination();
     characterResult();
     var userId = localStorage.getItem('currentUserId'); // userId 불러오기
     var Characters = JSON.parse(localStorage.getItem('Characters'));
+
+    function applyFontStyle() {
+        var language = localStorage.getItem('preferredLanguage');
+        
+        if(language === 'ko') {
+            $('body').removeClass('noto-serif-sc-regular');
+        } else if(language === 'cn') {
+            $('body').addClass('noto-serif-sc-regular');
+        }
+    }
+
+    applyFontStyle();
 
     // "남기기" 버튼 클릭 이벤트 리스너
     $('.push').click(function() {
