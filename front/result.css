@@ -139,13 +139,24 @@ section {
 }
 .users div {
   background-color: #fff;
+  flex-wrap: wrap;
   border-radius: 40px;
   box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
   display: flex;
   margin: 20px;
   align-items: center;
+  padding: 0 30px;
 }
-#user_name i {
+.user_name {
+  flex: 0 0 auto; /* 유연한 크기 조정을 방지하고, 내용이 넘쳐도 줄바꿈되지 않음 */
+  display: flex; /* flexbox 레이아웃 적용 */
+  align-items: center; /* 아이콘과 텍스트 중앙 정렬 */
+  flex-shrink: 0; /* 내용이 넘쳐도 줄바꿈 방지 */
+  white-space: nowrap; /* 닉네임이 한 줄로 유지되도록 */
+  padding: 10px;
+  font-size: 20px;
+}
+.user_name i {
   color: #fab25b;
   margin-right: 10px;
   font-size: 25px;
@@ -154,21 +165,19 @@ section {
   /* border: 1px solid red; */
   color: #fab25b;
   font-size: 25px;
-  margin-left: 700px;
-  
+  margin-left: auto;
+  padding-left: 10px;
+  float: left;
 }
-#user_name {
-  padding: 10px;
-  font-size: 20px;
-  margin-left: 30px;
-}
-#ment {
+.ment {
+  flex: 1; /* 남은 공간을 모두 차지하되, 필요한 경우 줄바꿈 */
   font-size: 20px;
   font-weight: 300;
+  white-space: inherit;
 }
 
 /* 번역토글 */
-.btn {
+/* .btn {
   position: relative;
   height: 65px;
   float: right;
@@ -251,7 +260,7 @@ section {
   transition: left 0.4s 0.2s, right 0.5s, background 0.35s -0.1s;
   padding: 15px;
   margin-top: 5px;
-}
+} */
 
 /* 페이지 수 (추가) */
 .page {
@@ -314,11 +323,8 @@ input:focus::placeholder {
   background-color: #c9c9c9;
   cursor: pointer;
 }
-<<<<<<< HEAD
-=======
 .noto-serif-sc-regular {
   font-family: "Noto Serif SC", serif;
   font-weight: 400;
   font-style: normal;
 }
->>>>>>> f4cac406c39eef5cd3b038251adc09ff26033126

@@ -10,7 +10,7 @@ $(document).ready(function() {
         
         console.log("준비 완료");
         $.ajax({
-            url: `http://15.164.230.127:8080/character/${characterName}/kr`,
+            url: `http://15.164.230.127:8080/character/${characterName}/${language}`,
             type: 'GET',
             dataType: 'json',
             success: function(response) {

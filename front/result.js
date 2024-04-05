@@ -1,7 +1,14 @@
 function characterResult(){
     var Characters = JSON.parse(localStorage.getItem('Characters'));
     console.log("캐릭터 결과" + Characters)
-    var nameMapping = {
+    var nameMappingCN = {
+        sunwukong: '孙悟空',
+        samjang: '唐僧',
+        shawujing: '沙悟净',
+        zhubajie: '猪八戒',
+        bailongma: '白龙马'
+    };
+    var nameMappingKR = {
         sunwukong: '손오공',
         samjang: '삼장법사',
         shawujing: '사오정',
@@ -34,19 +41,37 @@ function characterResult(){
 
     // 가장 높은 빈도를 가진 캐릭터가 여러 개인지 확인
     var mostFrequentCharacters = sortedCharacters.filter(character => character[1] === highestFrequency);
-
+    var preferredLanguage = localStorage.getItem('preferredLanguage');
     var resultText, imagePath;
-    if (mostFrequentCharacters.length > 1) {
-        resultText = "서유기 마스터";
-        imagePath = imageMapping['서유기']; // 동률인 경우 사용할 이미지
+    if (preferredLanguage === '중국어') {
+        // 중국어 선택 시 사용할 텍스트와 이미지 경로
+        if (mostFrequentCharacters.length > 1) {
+            resultText = "西游记大师"; // 중국어로 "서유기 마스터"
+            imagePath = imageMapping['西游记']; // 중국어 동률인 경우 사용할 이미지
+        } else {
+            var characterKey = mostFrequentCharacters[0][0]; // 가장 많이 나온 캐릭터의 키
+            resultText = mostFrequentCharacters.length > 0 ? nameMappingCN[characterKey] + " 专家" : "无结果"; // 중국어로 "전문가", "결과 없음"
+            imagePath = mostFrequentCharacters.length > 0 ? imageMapping[characterKey] : ""; // 해당 캐릭터의 이미지 경로
+        }
     } else {
-        var characterKey = mostFrequentCharacters[0][0]; // 가장 많이 나온 캐릭터의 키
-        resultText = mostFrequentCharacters.length > 0 ? nameMapping[characterKey] + " 전문가" : "결과 없음";
-        imagePath = mostFrequentCharacters.length > 0 ? imageMapping[characterKey] : ""; // 해당 캐릭터의 이미지 경로
+        // 기존 로직(한국어 또는 기타 언어)
+        if (mostFrequentCharacters.length > 1) {
+            resultText = "서유기 마스터";
+            imagePath = imageMapping['서유기']; // 동률인 경우 사용할 이미지
+        } else {
+            var characterKey = mostFrequentCharacters[0][0]; // 가장 많이 나온 캐릭터의 키
+            resultText = mostFrequentCharacters.length > 0 ? nameMappingKR[characterKey] + " 전문가" : "결과 없음";
+            imagePath = mostFrequentCharacters.length > 0 ? imageMapping[characterKey] : ""; // 해당 캐릭터의 이미지 경로
+        }
     }
 
     // HTML 업데이트
-    document.querySelector(".type").textContent = "당신은 " + resultText + "입니다!";
+    if (preferredLanguage === '중국어') {
+        document.querySelector(".type").textContent = "你是 " + resultText + "！";
+    } else {
+        // 기존 한국어 또는 다른 언어 처리 로직
+        document.querySelector(".type").textContent = "당신은 " + resultText + "입니다!";
+    }
     
     if (imagePath) {
         document.querySelector(".character_image").setAttribute('src', imagePath);
@@ -60,6 +85,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var userRanking = JSON.parse(localStorage.getItem('userRanking')); // 현재 사용자의 순위 정보
     var isInTopFive = false;
     var userRankIndex = -1; // 사용자가 상위 5위 안에 있을 경우 그 위치를 저장
+    
 
     // 상위 5위 순위 표시 로직 및 사용자 위치 확인
     rankingTopFive.forEach(function(rank, index) {
@@ -147,13 +173,10 @@ $(document).ready(function() {
                 response.content.forEach(function(comment, index) {
                     if (index < 5) { // 서버에서 더 많은 데이터를 반환하는 경우가 있어도 최대 5개만 표시
                         var commentHtml = `
-                            <div class="user">
-                                <p id="user_name"><i class="fa-solid fa-user"></i> ${comment.nickName} :</p>
-                                <p id="ment">${comment.content}</p>
-                                <span class="btn btn-1">
-                                <input type="checkbox" name="" id="swich">
-                                <label for="swich"></label>
-                            </span>
+                            <div class="user_list">
+                                <p class="user_name"><i class="fa-solid fa-user"></i> ${comment.nickName} :</p>
+                                <p class="ment">${comment.content}</p>
+                                <a href="#"><i class="fa-solid fa-retweet"></i></a>
                             </div>`;
                         $(".reviews .users").append(commentHtml);
                     }
@@ -189,32 +212,33 @@ $(document).ready(function() {
         });
     }
 
-    $('.translate-switch').change(function() {
-        if(this.checked) {
-            var targetLang = $(this).data('target-lang');
-            // 댓글 내용 가져오기
-            var commentContent = $(`.ment[data-comment-id="${commentId}"]`).text();
+    $('.reviews').on('click', '.fa-retweet', function(event) {
+        event.preventDefault(); // 기본 동작 방지
+        console.log("번역 단추 클릭 실행");
 
-            $.ajax({
-                url: `http://15.164.230.127:8080/comment/translate/kr`,
-                type: 'POST',
-                contentType: 'application/json',
-                // 댓글 ID, 내용, 그리고 목표 언어를 함께 전송
-                data: JSON.stringify({
-                    content: commentContent,
-                    targetLang: targetLang
-                }),
-                success: function(response) {
-                    console.log(response)
-                    // 번역 성공 시, 해당 코멘트의 텍스트를 업데이트
-                    $(`.ment[data-comment-id="${commentId}"]`).text(response.translatedText);
-                },
-                error: function(xhr, status, error) {
-                    console.error("번역 실패:", error);
-                    alert('코멘트 번역에 실패했습니다.');
-                }
-            });
-        }
+        var that = this; // 클릭된 요소를 'that' 변수에 저장
+
+        var comment = $(this).closest('.user_list').find('p.ment').text();
+        console.log(comment); // 가져온 텍스트를 콘솔에 출력
+
+        // AJAX 요청
+        $.ajax({
+            url: `http://15.164.230.127:8080/comment/translate`, // 요청을 보낼 서버의 URL 주소
+            type: 'POST', // HTTP 요청 방식
+            contentType: 'application/json', // 서버로 보낼 데이터의 MIME 타입
+            data: JSON.stringify({ comment: comment}), // 서버로 보낼 데이터. comment 객체를 JSON 문자열로 변환
+            success: function(response) {
+                console.log(response);
+                console.log(response.content);
+                // 요청이 성공했을 때 실행할 함수.
+                $(that).closest('.user_list').find('.ment').text(response.content);
+            alert('번역 성공: ' + response.content);
+            },
+            error: function(xhr, status, error) {
+                // 요청이 실패했을 때 실행할 함수
+                alert('번역 실패: ' + error); // 실패 원인을 알림으로 표시
+            }
+        });
     });
 
 });
