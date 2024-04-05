@@ -8,7 +8,7 @@ function characterResult(){
         zhubajie: '猪八戒',
         bailongma: '白龙马'
     };
-    var nameMappingKR = {
+    var nameMappingKO = {
         sunwukong: '손오공',
         samjang: '삼장법사',
         shawujing: '사오정',
@@ -53,14 +53,14 @@ function characterResult(){
             resultText = mostFrequentCharacters.length > 0 ? nameMappingCN[characterKey] + " 专家" : "无结果"; // 중국어로 "전문가", "결과 없음"
             imagePath = mostFrequentCharacters.length > 0 ? imageMapping[characterKey] : ""; // 해당 캐릭터의 이미지 경로
         }
-    } else if(preferredLanguage === 'kr'){
+    } else if(preferredLanguage === 'ko'){
         // 기존 로직(한국어 또는 기타 언어)
         if (mostFrequentCharacters.length > 1) {
             resultText = "서유기 마스터";
             imagePath = imageMapping['서유기']; // 동률인 경우 사용할 이미지
         } else {
             var characterKey = mostFrequentCharacters[0][0]; // 가장 많이 나온 캐릭터의 키
-            resultText = mostFrequentCharacters.length > 0 ? nameMappingKR[characterKey] + " 전문가" : "결과 없음";
+            resultText = mostFrequentCharacters.length > 0 ? nameMappingKO[characterKey] + " 전문가" : "결과 없음";
             imagePath = mostFrequentCharacters.length > 0 ? imageMapping[characterKey] : ""; // 해당 캐릭터의 이미지 경로
         }
     }
@@ -68,7 +68,7 @@ function characterResult(){
     // HTML 업데이트
     if (preferredLanguage === 'cn') {
         document.querySelector(".type").textContent = "你是 " + resultText + "！";
-    } else if(preferredLanguage === 'kr') {
+    } else if(preferredLanguage === 'ko') {
         // 기존 한국어 또는 다른 언어 처리 로직
         document.querySelector(".type").textContent = "당신은 " + resultText + "입니다!";
     }
@@ -131,9 +131,25 @@ $(document).ready(function() {
         var language = localStorage.getItem('preferredLanguage');
         
         if(language === 'ko') {
-            $('body').removeClass('noto-serif-sc-regular');
+            $('[data-ko]').each(function() {
+                $(this).text($(this).data('ko'));
+              });
+              // 한국어 placeholder 설정
+              $('[data-ko-placeholder]').each(function() {
+                $(this).attr('placeholder', $(this).data('ko-placeholder'));
+              });
+              $('body').removeClass('noto-serif-sc-regular');
+              $('body').attr('data-current-lang', 'ko');
         } else if(language === 'cn') {
-            $('body').addClass('noto-serif-sc-regular');
+            $('[data-cn]').each(function() {
+                $(this).text($(this).data('cn'));
+              });
+              // 중국어 placeholder 설정
+              $('[data-cn-placeholder]').each(function() {
+                $(this).attr('placeholder', $(this).data('cn-placeholder'));
+              });
+              $('body').addClass('noto-serif-sc-regular');
+              $('body').attr('data-current-lang', 'cn');
         }
     }
 

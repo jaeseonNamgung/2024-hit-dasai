@@ -8,9 +8,15 @@ $(document).ready(function() {
     var score = 0;
     var correctCharacterTypes = []; // 맞춘 문제의 캐릭터 유형을 저장할 배열
 
+    function getCurrentLanguage() {
+        // translate.js의 localStorage 사용과 일치하게 언어 선호도를 매칭합니다.
+        var preferredLanguage = localStorage.getItem('preferredLanguage');
+        return preferredLanguage === 'ko' ? 'ko' : 'cn';
+    }
+
     function applyFontStyle() {
-        var language = localStorage.getItem('preferredLanguage');
-        
+        var language = getCurrentLanguage(); 
+        console.log("문제 푸는 과정에서의 언어",language)
         if(language === 'ko') {
             $('body').removeClass('noto-serif-sc-regular');
         } else if(language === 'cn') {
@@ -75,7 +81,7 @@ $(document).ready(function() {
 
     function sendQuizResults() {
         var Characters = correctCharacterTypes;
-    
+        var language = getCurrentLanguage(); 
         $.ajax({
             url: `http://15.164.230.127:8080/quiz/result/${userId}`, 
             type: 'POST', 
@@ -89,6 +95,7 @@ $(document).ready(function() {
                 localStorage.setItem('Characters',  JSON.stringify(Characters));
                 localStorage.setItem('rankingTopFive', JSON.stringify(rankingTopFive));
                 localStorage.setItem('userRanking', JSON.stringify(userRanking));
+                localStorage.setItem('preferredLanguage', language);
                 console.log("localStorage에 rankingTopFive 저장 후");
                 // 페이지 이동 전 확인 로그
                 console.log("페이지 이동 직전");

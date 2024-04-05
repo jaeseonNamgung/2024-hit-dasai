@@ -28,10 +28,10 @@ $(document).ready(function() {
             success: function(data) {
                 console.log(nickname);
                 console.log(language);
+                console.log("quiz에서의 언어",language)
                 if(data.length > 0 && data[0].hasOwnProperty('userId')) {
                     localStorage.setItem('currentUserId', data[0].userId.toString());
                 }
-    
                 localStorage.setItem('currentNickname', nickname);
                 // 전체 퀴즈 데이터 저장
                 localStorage.setItem('quizData'+nickname, JSON.stringify(data));
