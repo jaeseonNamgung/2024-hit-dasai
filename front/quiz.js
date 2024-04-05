@@ -8,6 +8,19 @@ $(document).ready(function() {
     var score = 0;
     var correctCharacterTypes = []; // 맞춘 문제의 캐릭터 유형을 저장할 배열
 
+    function applyFontStyle() {
+        var language = localStorage.getItem('preferredLanguage');
+        
+        if(language === 'ko') {
+            $('body').removeClass('noto-serif-sc-regular');
+        } else if(language === 'cn') {
+            $('body').addClass('noto-serif-sc-regular');
+        }
+    }
+
+    applyFontStyle();
+
+    
     function displayQuiz() {
         if (currentQuizIndex < quizData.length) {
             var currentQuiz = quizData[currentQuizIndex];

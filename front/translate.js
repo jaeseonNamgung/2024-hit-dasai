@@ -13,12 +13,12 @@ $(document).ready(function() {
       $('body').removeClass('noto-serif-sc-regular');
     } else {
       // 체크박스가 해제되어 있으면 기본으로 중국어로 설정
-      $('[data-zh]').each(function() {
-        $(this).text($(this).data('zh'));
+      $('[data-cn]').each(function() {
+        $(this).text($(this).data('cn'));
       });
       // 중국어 placeholder 설정
-      $('[data-zh-placeholder]').each(function() {
-        $(this).attr('placeholder', $(this).data('zh-placeholder'));
+      $('[data-cn-placeholder]').each(function() {
+        $(this).attr('placeholder', $(this).data('cn-placeholder'));
       });
       $('body').addClass('noto-serif-sc-regular');
     }
@@ -38,7 +38,7 @@ $(document).ready(function() {
   // 체크박스 상태 변경 시 언어와 스타일 업데이트 및 저장
   $('#swich').change(function() {
     updateLanguageAndStyle();
-    var language = $(this).is(":checked") ? 'ko' : 'zh';
+    var language = $(this).is(":checked") ? 'ko' : 'cn';
     localStorage.setItem('preferredLanguage', language);
   });
 
