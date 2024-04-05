@@ -38,7 +38,7 @@ public class CommentLanguageDetector {
         Optional<String> lang = languageDetector.detect(text).transform(result -> result.getLanguage());
 
         // 감지된 언어 반환 (감지되지 않은 경우 "unknown" 반환)
-        return Language.detectLanguage(lang.or("cn"));
+        return Language.detectLanguage(lang.or("zh"));
     }
 
 }
