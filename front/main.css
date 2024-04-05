@@ -178,7 +178,11 @@ section {
   transition: 0.3s;
   cursor: pointer;
 }
-
+.noto-serif-sc-regular {
+  font-family: "Noto Serif SC", serif;
+  font-weight: 400;
+  font-style: normal;
+}
 /* popup */
 /* .popup {
   position: absolute;

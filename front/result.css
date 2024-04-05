@@ -145,10 +145,17 @@ section {
   margin: 20px;
   align-items: center;
 }
-.users i {
+#user_name i {
   color: #fab25b;
   margin-right: 10px;
   font-size: 25px;
+}
+.users a {
+  /* border: 1px solid red; */
+  color: #fab25b;
+  font-size: 25px;
+  margin-left: 700px;
+  
 }
 #user_name {
   padding: 10px;
@@ -307,3 +314,11 @@ input:focus::placeholder {
   background-color: #c9c9c9;
   cursor: pointer;
 }
+<<<<<<< HEAD
+=======
+.noto-serif-sc-regular {
+  font-family: "Noto Serif SC", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+>>>>>>> f4cac406c39eef5cd3b038251adc09ff26033126

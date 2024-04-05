@@ -1,6 +1,6 @@
 package com.example.xiyouji.story.vo;
 
-import com.example.xiyouji.store.UploadFile;
+
 import jakarta.persistence.*;
 import lombok.Builder;
 import lombok.Getter;
@@ -21,9 +21,13 @@ public class StoryContent {
     @Column(nullable = false)
     private String content;
 
+    private Integer paragraphNum;
+
     @Builder
-    public StoryContent(Story story, String content) {
+    public StoryContent(Long id, Story story, String content, Integer paragraphNum) {
+        this.id = id;
         this.story = story;
         this.content = content;
+        this.paragraphNum = paragraphNum;
     }
 }

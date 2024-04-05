@@ -62,11 +62,11 @@ header {
   color: #000000;
 }
 .btn input:before{
-  content: "CN";
+  content: "KR";
   left: 31px;
 }
 .btn input::after{
-  content: "KR";
+  content: "CN";
   right: 31px;
 }
 .btn label {
@@ -118,7 +118,7 @@ section {
   text-align: center;
   border: 1px solid rgba(255, 0, 0, 0);
   width: auto;
-  height: 800px;
+  height: 600px;
 }
 .goq {
   width: 200px;
@@ -140,7 +140,9 @@ section button {
   font-family: "omnigothic", sans-serif;
   font-weight: 400;
 }
-
+.tabs{
+  overflow-y: auto;
+}
 .tabs > p {
   width: 940px;
   height: 95px;
@@ -152,7 +154,7 @@ section button {
   font-size: 20px;
   font-weight: 300;
   margin: auto;
-  margin-top: 300px;
+  margin-top: 200px;
 }
 .select {
   list-style: none;
@@ -186,8 +188,9 @@ section button {
   display: none;
   margin: 20px;
   width: auto;
-  height: 700px;
-  overflow: hidden;
+  height: 480px;
+  overflow-y: auto;
+  padding-bottom: 10px;
 }
 .tabs > div.active {
   display: block;
@@ -200,23 +203,24 @@ section button {
   border-radius: 40px 40px 0 40px;
   padding: 25px 40px;
   float: right;
-  margin: 10px;
+  margin: 20px 10px;
+  display: block;
 }
 .da {
   background-color: #fff;
   border-radius: 0 40px 40px 40px;
   padding: 30px;
-  margin-top: 90px;
-  margin-left: 10px;
+  margin: 20px 10px;
   width: 800px;
   text-align: left;
+  clear: both;
 }
 .story_img {
   background-color: #fff;
   width: 450px;
   height: 450px;
   border-radius: 0 40px 40px 40px;
-  margin-left: 10px;
+  margin: 20px 10px;
 }
 .story_img img {
   width: 400px;
@@ -227,7 +231,7 @@ section button {
 }
 
 /* 답안이 2개 + 이미지 */
-#tab2, #tab3 {
+/* #tab2, #tab3 {
   overflow: hidden;
   overflow-y: scroll;
 }
@@ -266,4 +270,9 @@ section button {
   float: left;
   margin-left: 25px;
   margin-top: 25px;
+} */
+.noto-serif-sc-regular {
+  font-family: "Noto Serif SC", serif;
+  font-weight: 400;
+  font-style: normal;
 }

@@ -1,25 +1,22 @@
 package com.example.xiyouji.story.vo;
 
 
-import com.example.xiyouji.store.FileConvert;
-import com.example.xiyouji.store.InMemoryMultipartFile;
-import com.example.xiyouji.store.impl.FileHandlerImpl;
 import com.example.xiyouji.story.dto.StoryDto;
 import com.example.xiyouji.type.Characters;
 import com.example.xiyouji.type.Language;
+import io.lettuce.core.dynamic.annotation.CommandNaming;
 import jakarta.persistence.*;
-import lombok.AccessLevel;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
+import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
+import java.util.stream.IntStream;
 
 @Entity
 @Getter
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@RequiredArgsConstructor
 public class Story {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -28,6 +25,7 @@ public class Story {
     private Characters characters;
 
     private String storyTitle;
+
 
     @OneToMany(mappedBy = "story" , orphanRemoval = true, cascade = CascadeType.ALL)
     private List<StoryContent> storyContent;
@@ -38,16 +36,21 @@ public class Story {
     @Enumerated
     private Language language;
 
+    private Integer paragraphMax;
+
 
     @Builder
-    public Story(Long id, Characters characters, String storyTitle, List<StoryContent> storyContent, List<StoryImage> storyImages, Language language) {
+    public Story(Long id, Characters characters, String storyTitle, List<StoryContent> storyContent, List<StoryImage> storyImages, Language language, Integer paragraphMax) {
         this.id = id;
         this.characters = characters;
         this.storyTitle = storyTitle;
         this.storyContent = storyContent;
         this.storyImages = storyImages;
         this.language = language;
+        this.paragraphMax = paragraphMax;
     }
+
+
 
 
     public StoryDto.StoryResponseDto toStoryResponseDto() {
@@ -65,6 +68,27 @@ public class Story {
                         .map(StoryContent::getContent)
                         .toList())
                 .build();
+    }
+
+    public StoryDto.StoryResponseDto toStoryResponseDtoByNum(Integer num) {
+        return StoryDto.StoryResponseDto.builder()
+                .storyImagesUrl(Optional.ofNullable(storyImages)
+                        .orElseGet(Collections::emptyList) // storyImages가 null이면 빈 리스트를 반환
+                        .stream()
+                        .filter(imageUrls -> imageUrls.getParagraphNum() == num + 1)
+                        .map(StoryImage::getFullPath)
+                        .toList())
+                .storyContents(storyContent.stream()
+                        .filter(storyContent -> storyContent.getParagraphNum() == num + 1)
+                        .map(StoryContent::getContent)
+                        .toList())
+                .build();
+    }
+
+    public List<StoryDto.StoryResponseDto> toStoryResponseDtos() {
+        return IntStream.range(0, paragraphMax)
+                .mapToObj(this::toStoryResponseDtoByNum)
+                .toList();
     }
 
 
