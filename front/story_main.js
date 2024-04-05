@@ -5,27 +5,42 @@ $(document).ready(function() {
         return preferredLanguage === 'ko' ? 'ko' : 'cn';
     }
 
+    var storyDataCache = {
+        ko: {},
+        cn: {}
+    };
 
     $('.select li').click(function() {
         $('.box').hide();
         $(this).addClass('active').siblings().removeClass('active');
-        var storyId = $(this).attr('data-alt').replace('tab', '');
-
+        // var storyId = $(this).attr('data-alt').replace('tab', '');
+        var storyIdKo = $(this).data('story-id-ko');
+        var storyIdCn = $(this).data('story-id-cn');
         $('#tab_story').show().empty(); 
 
-        fetchStoryData(storyId);
+        // fetchStoryData(storyId);
+        // 한국어 버전 데이터 요청
+        fetchStoryData(storyIdKo, 'ko');
+
+        // 중국어 버전 데이터 요청
+        fetchStoryData(storyIdCn, 'cn');
     });
 
-    function fetchStoryData(storyId) {
+    function fetchStoryData(storyId, language) {
         var language = getCurrentLanguage(); // 현재 언어 설정을 가져옴
         $.ajax({
             url: `http://15.164.230.127:8080/story/${storyId}/${language}`,
             type: 'GET',
             dataType: 'json',
             success: function(data) {
-                console.log(data);
-                console.log(language);
-                displayStory(data);
+                // 가져온 데이터를 언어별로 캐싱
+                storyDataCache[language][storyId] = data;
+                console.log(language + " version:", data);
+    
+                // 현재 언어 설정에 맞는 데이터만 화면에 표시
+                if (language === getCurrentLanguage()) {
+                    displayStory(data);
+                }
             },
             error: function(error) {
                 console.error('Error fetching story data:', error);
