@@ -156,7 +156,6 @@ header {
 section {
   text-align: center;
   max-width: 1280px; 
-  height: 800px;
   margin: auto;
 }
 .quiz_logo img {
@@ -167,7 +166,7 @@ section {
 }
 .quiz_logo h1 {
   font-size: 35px;
-  margin-top: 50px;
+  margin-top: 60px;
 }
 .login {
   padding: 30px;
