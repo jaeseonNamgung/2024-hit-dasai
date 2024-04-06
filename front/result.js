@@ -1,28 +1,43 @@
+var nameMappingCN = {
+    sunwukong: '孙悟空',
+    samjang: '唐僧',
+    shawujing: '沙悟净',
+    zhubajie: '猪八戒',
+    bailongma: '白龙马'
+};
+var nameMappingToCN = {
+    손오공: '孙悟空',
+    삼장법사: '唐僧',
+    사오정: '沙悟净',
+    저팔계: '猪八戒',
+    백룡마: '白龙马'
+};
+var nameMappingKO = {
+    sunwukong: '손오공',
+    samjang: '삼장법사',
+    shawujing: '사오정',
+    zhubajie: '저팔계',
+    bailongma: '백룡마'
+};
+var nameMappingToKO = {
+    孙悟空: '손오공',
+    唐僧: '삼장법사',
+    沙悟净: '사오정',
+    猪八戒: '저팔계',
+    白龙马: '백룡마'
+};
+var imageMapping = {
+    sunwukong: 'images/손.png',
+    samjang: 'images/삼.png',
+    shawujing: 'images/사.png',
+    zhubajie: 'images/저.png',
+    bailongma: 'images/.png', //추가해야 해요
+    서유기: 'images/.png' //추가해야 해요
+};
+
 function characterResult(){
     var Characters = JSON.parse(localStorage.getItem('Characters'));
     console.log("캐릭터 결과" + Characters)
-    var nameMappingCN = {
-        sunwukong: '孙悟空',
-        samjang: '唐僧',
-        shawujing: '沙悟净',
-        zhubajie: '猪八戒',
-        bailongma: '白龙马'
-    };
-    var nameMappingKO = {
-        sunwukong: '손오공',
-        samjang: '삼장법사',
-        shawujing: '사오정',
-        zhubajie: '저팔계',
-        bailongma: '백룡마'
-    };
-    var imageMapping = {
-        sunwukong: 'images/손.png',
-        samjang: 'images/삼.png',
-        shawujing: 'images/사.png',
-        zhubajie: 'images/저.png',
-        bailongma: 'images/.png', //추가해야 해요
-        서유기: 'images/.png' //추가해야 해요
-    };
 
     console.log(Characters); //데이터 잘 넘겨왔나 확인
   
@@ -67,7 +82,7 @@ function characterResult(){
 
     // HTML 업데이트
     if (preferredLanguage === 'cn') {
-        document.querySelector(".type").textContent = "你是 " + resultText + "！";
+        document.querySelector(".type").textContent = "你是" + resultText + "！";
     } else if(preferredLanguage === 'ko') {
         // 기존 한국어 또는 다른 언어 처리 로직
         document.querySelector(".type").textContent = "당신은 " + resultText + "입니다!";
@@ -85,37 +100,58 @@ document.addEventListener('DOMContentLoaded', function() {
     var userRanking = JSON.parse(localStorage.getItem('userRanking')); // 현재 사용자의 순위 정보
     var isInTopFive = false;
     var userRankIndex = -1; // 사용자가 상위 5위 안에 있을 경우 그 위치를 저장
-    
+    var preferredLanguage = localStorage.getItem('preferredLanguage'); // 언어 설정 가져오기
 
+
+    console.log("preferredLanguage", preferredLanguage);
     // 상위 5위 순위 표시 로직 및 사용자 위치 확인
     rankingTopFive.forEach(function(rank, index) {
         var rankElement = document.querySelector('.rank' + (index + 1));
         if (rankElement) {
             rankElement.querySelector('h1').textContent = index + 1; // 등수 표시
             rankElement.querySelector('.rank_name').textContent = rank.nickName; // 닉네임
-            rankElement.querySelector('.types').textContent = rank.characters.join(', '); // 캐릭터 타입
+            // 캐릭터 타입을 현재 언어 설정에 맞게 변환하여 표시
+            var typesText = rank.characters.map(function(character) {
+                var characterName = character; // 기본값 설정
+                if (preferredLanguage === 'cn') {
+                    console.log('Mapping to CN for', character); // 중국어 매핑 로그
+                    characterName = nameMappingToCN[character] || character;
+                } else if (preferredLanguage === 'ko') {
+                    console.log('Mapping to KO for', character); // 한국어 매핑 로그
+                    characterName = nameMappingToKO[character] || character;
+                }
+                return characterName;
+            }).join(', ');
 
-            // 현재 순위의 닉네임이 사용자의 닉네임과 일치하는지 확인
-            if (rank.nickName === nickname) {
-                isInTopFive = true;
-                userRankIndex = index + 1; // 사용자의 순위 저장
-                // 사용자가 상위 5위 안에 있을 경우, 해당 순위 요소에 특별한 스타일 적용
-                rankElement.style.border = '2px solid #f86551';
-            }
+            rankElement.querySelector('.types').textContent = typesText;
         }
     });
 
     let rank6Element = document.querySelector('.rank6'); // rank6 요소 선택
 
-    // 사용자가 상위 5위 안에 없고, userRanking 정보가 있는 경우
-    if (!isInTopFive && userRanking && userRanking.rankingCount) {
-        rank6Element.style.display = 'flex'; // rank6 표시
-        rank6Element.querySelector('h1').textContent = userRanking.rankingCount; // 사용자 순위
-        rank6Element.querySelector('.rank_name').textContent = nickname; // 사용자 닉네임
-        rank6Element.querySelector('.types').textContent = userRanking.characters.join(', '); // 사용자 캐릭터 타입
-    } else {
-        rank6Element.style.display = 'none'; // 사용자가 상위 5위 안에 있으면 rank6 숨김
-    }
+// 사용자가 상위 5위 안에 없고, userRanking 정보가 있는 경우
+if (!isInTopFive && userRanking && userRanking.rankingCount) {
+    rank6Element.style.display = 'flex'; // rank6 표시
+    rank6Element.querySelector('h1').textContent = userRanking.rankingCount; // 사용자 순위
+    rank6Element.querySelector('.rank_name').textContent = nickname; // 사용자 닉네임
+
+    // 캐릭터 타입을 현재 언어 설정에 맞게 변환하여 표시
+    var typesTextRank6 = userRanking.characters.map(function(character) {
+        var characterName = character; // 기본값 설정
+        if (preferredLanguage === 'cn') {
+            console.log('Mapping to CN for rank6', character); // 중국어 매핑 로그
+            characterName = nameMappingCN[character] || character;
+        } else if (preferredLanguage === 'ko') {
+            console.log('Mapping to KO for rank6', character); // 한국어 매핑 로그
+            characterName = nameMappingKO[character] || character;
+        }
+        return characterName;
+    }).join(', ');
+
+    rank6Element.querySelector('.types').textContent = typesTextRank6;
+} else {
+    rank6Element.style.display = 'none'; // 사용자가 상위 5위 안에 있으면 rank6 숨김
+}
 });
 
 
