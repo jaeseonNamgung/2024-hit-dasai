@@ -12,8 +12,6 @@ body {
   color: #000;
   margin: 0;
   padding: 0;
-  height: 100%;
-  /* position: relative; */
 }
 .noto-serif-sc-regular {
   font-family: "Noto Serif SC", serif;
@@ -30,7 +28,6 @@ header {
   margin: auto;
   overflow: hidden;
   line-height: 20px;
-  /* border: 1px solid blue; */
 }
 .nav {
   list-style: none;
@@ -71,6 +68,7 @@ header {
   appearance: none;
   font-weight: bold;
   box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+  background: #fab25b;
 }
 .btn input::before,
 .btn input:after {
@@ -78,7 +76,7 @@ header {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  color: #000000;
+  color: #ffffff;
 }
 .btn input:before{
   content: "KR";
@@ -102,7 +100,7 @@ header {
   background: #fab25b;
 }
 .btn.btn-1 input:checked::before{
-  color: #fff;
+  color: #000000;
   transition: color 0.5s 0.2s;
 }
 .btn .btn-1 input:checked::after{
@@ -112,7 +110,7 @@ header {
 .btn.btn-1 input:checked + label {
   left: 5px;
   right: 95px;
-  background: #fab25b;
+  background: #F0F0F3;
   transition: left 0.5s, right 0.4s 0.2s;
 }
 .btn.btn-1 input:not(:checked){
@@ -135,7 +133,6 @@ header {
 }
 section {
   width: 1550px;
-  /* border: 1px solid red; */
   position: relative;
   height: auto;
   margin: auto;
@@ -143,11 +140,9 @@ section {
 .character_select {
   display: flex;
   justify-content: center;
-  /* border: 1px solid blue; */
   margin-top: 300px;
   height: 100%;
 }
-
 .character_select img {
   width: 250px;
   height: 300px;
@@ -157,6 +152,7 @@ section {
   z-index: 2;
   transform: scale(1.3);
   transition: 0.3s;
+  cursor: pointer;
 }
 footer {
   /* border: 1px solid red; */
@@ -183,18 +179,13 @@ footer {
   transition: 0.3s;
   cursor: pointer;
 }
-
 /* popup */
-main {
-  z-index: 1;
-}
 .popup {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 2;
   background-color: #00000084;
   display: none;
 }
