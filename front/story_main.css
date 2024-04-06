@@ -13,7 +13,8 @@ a {
   text-decoration: none;
 }
 header {
-  width: 1400px;
+  /* width: 1400px; */
+  max-width: 1400px;
   height: 75px;
   margin: auto;
   overflow: hidden;
@@ -131,6 +132,7 @@ section {
   width: 200px;
   height: 50px;
   margin: 20px;
+  margin-left: 100px;
 }
 .goq button:hover {
   background-color: #fab25b;
@@ -167,7 +169,7 @@ section button {
 .select {
   list-style: none;
   display: flex;
-  width: 100%;
+  max-width: 1400px;
   margin: auto;
   overflow: hidden;
 }
