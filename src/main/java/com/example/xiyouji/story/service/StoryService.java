@@ -30,7 +30,6 @@ public class StoryService {
         Story story = storyRepository.getStoryByIdAndLanguage(storyRequestDto.getStoryId(), storyRequestDto.getLanguage())
                 .orElseThrow(() -> new RestApiException(StoryErrorCode.STORY_NOT_EXIST));
 
-
         return story.toStoryResponseDtos();
     }
 
