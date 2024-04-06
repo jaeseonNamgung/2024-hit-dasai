@@ -7,14 +7,20 @@ body {
   font-style: normal;
   background-color: #f3f3f3;
   color: #000;
+  padding: 0;
+  margin: 0;
 }
 a {
   color: #000;
   text-decoration: none;
 }
 header {
-  height: 60px;
+  /* width: 1400px; */
+  max-width: 1400px;
+  height: 75px;
+  margin: auto;
   overflow: hidden;
+  line-height: 20px;
 }
 .nav {
   list-style: none;
@@ -23,7 +29,8 @@ header {
   display: flex;
   float: left;
   overflow: hidden;
-  height: 60px;
+  height: 80px;
+  margin-top: 10px;
 }
 .nav li {
   padding-left: 30px;
@@ -31,7 +38,7 @@ header {
   width: 200px;
 }
 .nav li a {
-  font-size: 15px;
+  font-size: 17px;
 }
 .nav li a:hover {
   color: #fab25b;
@@ -42,6 +49,7 @@ header {
   height: 60px;
   float: right;
   padding: 5px 20px 0 0;
+  margin-top: 15px;
 }
 .btn input {
   position: relative;
@@ -91,7 +99,7 @@ header {
   transition: color 0.5s;
 }
 .btn.btn-1 input:checked + label {
-  left: 5px;
+  left: 9px;
   right: 95px;
   background: #fab25b;
   transition: left 0.5s, right 0.4s 0.2s;
@@ -116,9 +124,11 @@ header {
 }
 section {
   text-align: center;
+  position: relative;
   border: 1px solid rgba(255, 0, 0, 0);
-  width: auto;
+  max-width: 1280px;
   height: 600px;
+  margin: auto;
 }
 .goq {
   width: 200px;
@@ -129,6 +139,7 @@ section {
   background-color: #fab25b;
   color: #fff;
   cursor: pointer;
+  transition: 0.3s;
 }
 section button {
   border: none;
@@ -159,7 +170,7 @@ section button {
 .select {
   list-style: none;
   display: flex;
-  width: 1500px;
+  max-width: 1400px;
   margin: auto;
   overflow: hidden;
 }

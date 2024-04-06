@@ -108,7 +108,7 @@ header {
   transition: color 0.5s;
 }
 .btn.btn-1 input:checked + label {
-  left: 5px;
+  left: 9px;
   right: 95px;
   background: #F0F0F3;
   transition: left 0.5s, right 0.4s 0.2s;
