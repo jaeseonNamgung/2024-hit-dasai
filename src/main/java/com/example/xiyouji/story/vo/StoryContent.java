@@ -18,7 +18,7 @@ public class StoryContent {
     @ManyToOne
     private Story story;
 
-    @Column(nullable = false)
+    @Column(nullable = false, length = 50000)
     private String content;
 
     private Integer paragraphNum;
