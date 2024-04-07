@@ -42,6 +42,8 @@ $(document).ready(function() {
     updateLanguageAndStyle();
     var language = $(this).is(":checked") ? 'ko' : 'cn';
     localStorage.setItem('preferredLanguage', language);
+
+    window.loadStoryInNewLanguage(language); //수정
   });
 
   // 페이지 로드 시 언어 설정 적용
