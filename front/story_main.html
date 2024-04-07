@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>스토리 메인화면</title>
+  <title>西游记</title>
   <link rel="stylesheet" href="story_main.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,8 +26,8 @@
     <main>
       <header>
         <ul class="nav">
-          <li><a href="main.html"><i class="fa-solid fa-house"></i> HOME</a></li>
-          <li><a href="story_main.html" data-ko="내용" data-zh="内容">내용</a></li>
+          <li><a href="newmain.html"><i class="fa-solid fa-house"></i> HOME</a></li>
+          <li><a href="story_main.html" data-ko="내용" data-cn="内容">내용</a></li>
         </ul>
         <span class="btn btn-1">
           <input type="checkbox" name="" id="swich">
@@ -36,10 +36,10 @@
       </header>
       <section>
         <div class="goq">
-          <a href="quiz.html"><button data-ko="퀴즈 바로가기" data-zh="点击测验">퀴즈 바로가기</button></a>
+          <a href="quiz.html"><button data-ko="퀴즈 바로가기" data-cn="点击测验">퀴즈 바로가기</button></a>
         </div>
         <div class="tabs">
-          <p class="box" data-ko="아래 다섯 개의 카테고리 중 하나를 눌러 이야기를 살펴보세요 !" data-zh="点击下面任意一个查看故事！">아래 다섯 개의 카테고리 중 하나를 눌러 이야기를 살펴보세요 !</p>
+          <p class="box" data-ko="아래 다섯 개의 카테고리 중 하나를 눌러 이야기를 살펴보세요 !" data-cn="点击下面任意一个查看故事！">아래 다섯 개의 카테고리 중 하나를 눌러 이야기를 살펴보세요 !</p>
           <div id="tab_story">
             <p class="wen"></p>
             <p class="da">
@@ -52,19 +52,20 @@
       </section>
       <footer> 
         <ul class="select">
-          <li data-alt="tab11" class="active">여정의 시작</li>
-          <li data-alt="tab12">동행자와의 만남</li>
-          <li data-alt="tab3">각종 모험과 시련</li>
-          <li data-alt="tab4">성장과 깨달음</li>
-          <li data-alt="tab5">목적 달성과 결말</li>
+          <li data-story-id-ko="11" data-story-id-cn="13" id="story1" class="active" data-ko="여정의 시작" data-cn="你好test">여정의 시작</li>
+          <li data-story-id-ko="" data-story-id-cn="" id="story2" data-ko="동행자와의 만남" data-cn="你好test">동행자와의 만남</li>
+          <li data-story-id-ko="" data-story-id-cn="" id="story3" data-ko="각종 모험과 시련" data-cn="你好test">각종 모험과 시련</li>
+          <li data-story-id-ko="" data-story-id-cn="" id="story4" data-ko="성장과 깨달음" data-cn="你好test">성장과 깨달음</li>
+          <li data-story-id-ko="" data-story-id-cn="" id="story5" data-ko="목적 달성과 결말" data-cn="你好test">목적 달성과 결말</li>
         </ul>
       </footer>
     </main>
   </div>
 
   <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
-  <script src="translate.js"></script>
+  
   <script src="story_main.js"></script>
+  <script src="translate.js"></script>
   
 </body>
 </html>

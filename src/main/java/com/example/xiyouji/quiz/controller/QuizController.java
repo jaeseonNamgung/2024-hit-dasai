@@ -8,6 +8,7 @@ import com.example.xiyouji.quiz.vo.ChoiceQuiz;
 import com.example.xiyouji.quiz.vo.Quiz;
 import com.example.xiyouji.type.Characters;
 import com.example.xiyouji.type.Language;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,6 +29,7 @@ public class QuizController {
     private final QuizRepository quizRepository;
 
     @GetMapping("/quiz/start/{nickName}/{language}")
+    @Transactional
     public ResponseEntity<List<QuizDto.QuizResponseDto>> getQuizzes(
             @PathVariable String language,
             @PathVariable String nickName) {

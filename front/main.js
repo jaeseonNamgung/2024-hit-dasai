@@ -1,7 +1,8 @@
 $(function() {
     function getCurrentLanguage() {
-        // 체크박스가 체크되어 있으면 'kr', 그렇지 않으면 'zh' 반환
-        return $('.btn input[type="checkbox"]').is(":checked") ? 'kr' : 'cn';
+        // translate.js의 localStorage 사용과 일치하게 언어 선호도를 매칭합니다.
+        var preferredLanguage = localStorage.getItem('preferredLanguage');
+        return preferredLanguage === 'ko' ? 'ko' : 'cn';
     }
 
     // 캐릭터에 마우스를 올렸을 때
