@@ -1,6 +1,5 @@
 $(document).ready(function() {
     function getCurrentLanguage() {
-        // translate.js의 localStorage 사용과 일치하게 언어 선호도를 매칭합니다.
         var preferredLanguage = localStorage.getItem('preferredLanguage');
         return preferredLanguage === 'ko' ? 'ko' : 'cn';
     }
@@ -13,20 +12,19 @@ $(document).ready(function() {
     $('.select li').click(function() {
         $('.box').hide();
         $(this).addClass('active').siblings().removeClass('active');
-        // var storyId = $(this).attr('data-alt').replace('tab', '');
+        var isFirstItem = $(this).is(':first-child'); // 첫 번째 항목인지 확인
         var storyIdKo = $(this).data('story-id-ko');
         var storyIdCn = $(this).data('story-id-cn');
         $('#tab_story').show().empty(); 
 
-        // fetchStoryData(storyId);
         // 한국어 버전 데이터 요청
-        fetchStoryData(storyIdKo, 'ko');
+        fetchStoryData(storyIdKo, 'ko', isFirstItem);
 
         // 중국어 버전 데이터 요청
-        fetchStoryData(storyIdCn, 'cn');
+        fetchStoryData(storyIdCn, 'cn', isFirstItem);
     });
 
-    function fetchStoryData(storyId, preferredLanguage) {
+    function fetchStoryData(storyId, preferredLanguage, isFirstItem) {
         ; var language = getCurrentLanguage(); // 현재 언어 설정을 가져옴
         $.ajax({
             url: `http://15.164.230.127:8080/story/${storyId}/${preferredLanguage}`,
@@ -39,7 +37,7 @@ $(document).ready(function() {
     
                 // 현재 언어 설정에 맞는 데이터만 화면에 표시
                 if (preferredLanguage === getCurrentLanguage()) {
-                    displayStory(data);
+                    displayStory(data, isFirstItem); // isFirstItem 인자 추가
                 }
             },
             error: function(error) {
@@ -48,10 +46,13 @@ $(document).ready(function() {
         });
     }
 
-    function displayStory(data) {
+    function displayStory(data, isFirstItem) {
         var tabContent = $('#tab_story'); // 스토리 내용이 추가되는 컨테이너
         let totalDelay = 0;
-    
+        let delayIncrement = isFirstItem ? 3000 : 2000;
+
+        console.log("현재 지연 시간 증가량:", delayIncrement);
+
         data.forEach((item, arrayIndex) => {
             item.storyContents.forEach((content, contentIndex) => {
                 setTimeout(() => {
@@ -61,7 +62,7 @@ $(document).ready(function() {
                     // 메시지 추가 후 스크롤 조정
                     adjustScrollWithinContainerSmoothly(tabContent, 50);
                 }, totalDelay);
-                totalDelay += 2000; // 다음 메시지를 위한 지연 시간
+                totalDelay += delayIncrement; // 다음 메시지를 위한 지연 시간
             });
     
             item.storyImagesUrl.forEach((imageUrl, index) => {
@@ -71,7 +72,7 @@ $(document).ready(function() {
                     // 이미지 추가 후 스크롤 조정
                     adjustScrollWithinContainerSmoothly(tabContent, 50);
                 }, totalDelay);
-                totalDelay += 2000; // 다음 이미지를 위한 지연 시간
+                totalDelay += delayIncrement; // 다음 이미지를 위한 지연 시간
             });
         });
     }
