@@ -165,7 +165,6 @@ section {
   height: 100%;
   backface-visibility: hidden;
   border-radius: 50px;
-  background-image: url(/images/samsam.png), linear-gradient(to top, #80533e 30%, #ff8147 100%);
   background-size: cover;
   background-position: center center;
 }
@@ -212,19 +211,19 @@ section {
   left: 410px;
 }
 .sha .front {
-  background-image: url(/images/shasha.png), linear-gradient(to top, #BAA3AA 30%, #F48D89 100%);
+  background-image: url(images/shasha.png), linear-gradient(to top, #BAA3AA 30%, #F48D89 100%);
 }
 .son .front {
-  background-image: url(/images/sonson.png), linear-gradient(to top, #EB9C0A 30%, #C35B2B 100%);
+  background-image: url(images/sonson.png), linear-gradient(to top, #EB9C0A 30%, #C35B2B 100%);
 }
 .zhu .front {
-  background-image: url(/images/zhuzhu.png), linear-gradient(to top, #E8B871 30%, #FB8751 100%);
+  background-image: url(images/zhuzhu.png), linear-gradient(to top, #E8B871 30%, #FB8751 100%);
 }
 .bai .front {
-  background-image: url(/images/baibai.png), linear-gradient(to top, #E4C2D1 30%, #80B7BF 100%);
+  background-image: url(images/baibai.png), linear-gradient(to top, #E4C2D1 30%, #80B7BF 100%);
 }
 .sam .front {
-  background-image: url(/images/samsam.png), linear-gradient(to top, #80533e 30%, #ff8147 100%);
+  background-image: url(images/samsam.png), linear-gradient(to top, #80533e 30%, #ff8147 100%);
 }
 .gbtn {
   float: right;
