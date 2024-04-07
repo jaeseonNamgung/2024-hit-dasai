@@ -222,8 +222,11 @@ section button {
   background-color: #fff;
   border-radius: 0 40px 40px 40px;
   padding: 30px;
+  letter-spacing: normal;
+  line-height: 1.7;
   margin: 20px 10px;
   width: 800px;
+  font-weight: 500;
   text-align: left;
   clear: both;
 }
