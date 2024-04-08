@@ -9,7 +9,7 @@ $(document).ready(function() {
         ko: {},
         cn: {}
     };
-
+    $('.select li').removeClass('active')
     $('.select li').click(function() {
         $('.box').hide();
         $(this).addClass('active').siblings().removeClass('active');
