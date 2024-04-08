@@ -46,33 +46,71 @@ $(document).ready(function() {
         });
     }
 
+    // function displayStory(data, isFirstItem) {
+    //     var tabContent = $('#tab_story'); // 스토리 내용이 추가되는 컨테이너
+    //     let totalDelay = 0;
+    //     let delayIncrement = isFirstItem ? 3000 : 2000;
+
+    //     console.log("현재 지연 시간 증가량:", delayIncrement);
+
+    //     data.forEach((item, arrayIndex) => {
+    //         item.storyContents.forEach((content, contentIndex) => {
+    //             setTimeout(() => {
+    //                 let messageClass = arrayIndex === 0 && contentIndex === 0 ? 'wen' : 'da';
+    //                 const message = $(`<p class="${messageClass}">${content}</p>`);
+    //                 tabContent.append(message);
+    //                 // 메시지 추가 후 스크롤 조정
+    //                 adjustScrollWithinContainerSmoothly(tabContent, 50);
+    //             }, totalDelay);
+    //             totalDelay += delayIncrement; // 다음 메시지를 위한 지연 시간
+    //         });
+    
+    //         item.storyImagesUrl.forEach((imageUrl, index) => {
+    //             setTimeout(() => {
+    //                 const image = $(`<div class="story_img"><img src="${imageUrl}" alt="story image" style="width: 400px; height: 400px; float: left; margin-left: 25px; margin-top: 25px;"></div>`);
+    //                 tabContent.append(image);
+    //                 // 이미지 추가 후 스크롤 조정
+    //                 adjustScrollWithinContainerSmoothly(tabContent, 50);
+    //             }, totalDelay);
+    //             totalDelay += delayIncrement; // 다음 이미지를 위한 지연 시간
+    //         });
+    //     });
+    // }
+
     function displayStory(data, isFirstItem) {
-        var tabContent = $('#tab_story'); // 스토리 내용이 추가되는 컨테이너
+        var tabContent = $('#tab_story'); 
         let totalDelay = 0;
         let delayIncrement = isFirstItem ? 3000 : 2000;
 
         console.log("현재 지연 시간 증가량:", delayIncrement);
-
-        data.forEach((item, arrayIndex) => {
-            item.storyContents.forEach((content, contentIndex) => {
-                setTimeout(() => {
-                    let messageClass = arrayIndex === 0 && contentIndex === 0 ? 'wen' : 'da';
-                    const message = $(`<p class="${messageClass}">${content}</p>`);
-                    tabContent.append(message);
-                    // 메시지 추가 후 스크롤 조정
-                    adjustScrollWithinContainerSmoothly(tabContent, 50);
-                }, totalDelay);
-                totalDelay += delayIncrement; // 다음 메시지를 위한 지연 시간
-            });
     
-            item.storyImagesUrl.forEach((imageUrl, index) => {
+        // 모든 항목의 이미지 먼저 표시
+        data.list.forEach((item, itemIndex) => {
+            item.storyImagesUrl.forEach((imageUrl) => {
                 setTimeout(() => {
                     const image = $(`<div class="story_img"><img src="${imageUrl}" alt="story image" style="width: 400px; height: 400px; float: left; margin-left: 25px; margin-top: 25px;"></div>`);
                     tabContent.append(image);
-                    // 이미지 추가 후 스크롤 조정
                     adjustScrollWithinContainerSmoothly(tabContent, 50);
                 }, totalDelay);
-                totalDelay += delayIncrement; // 다음 이미지를 위한 지연 시간
+                totalDelay += delayIncrement;
+            });
+        });
+    
+        // 모든 항목의 텍스트 표시, list[0]의 첫 번째 텍스트에만 'wen' 클래스 적용
+        data.list.forEach((item, itemIndex) => {
+            item.storyContents.forEach((content, contentIndex) => {
+                setTimeout(() => {
+                    let messageClass;
+                    if (itemIndex === 0 && contentIndex === 0) {
+                        messageClass = 'wen'; // list[0]의 첫 번째 텍스트
+                    } else {
+                        messageClass = 'da'; // 그 외 모든 텍스트
+                    }
+                    const message = $(`<p class="${messageClass}">${content}</p>`);
+                    tabContent.append(message);
+                    adjustScrollWithinContainerSmoothly(tabContent, 50);
+                }, totalDelay);
+                totalDelay += delayIncrement;
             });
         });
     }
