@@ -96,9 +96,9 @@ $(document).ready(function() {
                 localStorage.setItem('rankingTopFive', JSON.stringify(rankingTopFive));
                 localStorage.setItem('userRanking', JSON.stringify(userRanking));
                 localStorage.setItem('preferredLanguage', language);
-                console.log("localStorage에 rankingTopFive 저장 후");
+
                 // 페이지 이동 전 확인 로그
-                console.log("페이지 이동 직전");
+                console.log(rankingTopFive);
                 window.location.href = 'result.html';
             },
             error: function(xhr, status, error) {
