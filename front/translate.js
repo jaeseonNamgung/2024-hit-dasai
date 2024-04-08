@@ -12,6 +12,9 @@ $(document).ready(function() {
       });
       $('body').removeClass('noto-serif-sc-regular');
       $('input').removeClass('noto-serif-sc-regular');
+      $('body').css('background-color', '#f3f3f3');//배경 바뀌는 부분
+      $('body').css('background', 'none'); 
+      $('body, a').css('color', '#000'); //글자 색
     } else {
       // 체크박스가 해제되어 있으면 기본으로 중국어로 설정
       $('[data-cn]').each(function() {
@@ -23,6 +26,9 @@ $(document).ready(function() {
       });
       $('body').addClass('noto-serif-sc-regular');
       $('input').addClass('noto-serif-sc-regular');
+      $('body').css('background', 'linear-gradient(to top, #862929 30%, #000 100%)');
+      $('body, a').css('color', '#fff'); //글자 색
+      $('.card_wrapper').css('color', '#000'); //예외
     }
   }
 
@@ -43,6 +49,7 @@ $(document).ready(function() {
     var language = $(this).is(":checked") ? 'ko' : 'cn';
     localStorage.setItem('preferredLanguage', language);
 
+      console.log(background-color);
     window.loadStoryInNewLanguage(language); //수정
   });
 
