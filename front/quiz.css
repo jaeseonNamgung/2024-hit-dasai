@@ -61,6 +61,7 @@ header {
   appearance: none;
   font-weight: bold;
   box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+  background: #F0F0F3;
 }
 .btn input::before,
 .btn input:after {
@@ -89,7 +90,7 @@ header {
   transition: 0.2s -0.1s;
 }
 .btn .btn-1 input:checked{
-  background: #8d2b2b;
+  background: #F0F0F3;
 }
 .btn.btn-1 input:checked::before{
   color: #fff;
@@ -106,7 +107,7 @@ header {
   transition: left 0.5s, right 0.4s 0.2s;
 }
 .btn.btn-1 input:not(:checked){
-  background: #F0F0F3;
+  background: #8d2b2b;
   transition: background 0.5s -0.1s;
 }
 .btn.btn-1 input:not(:checked)::before{
@@ -114,13 +115,13 @@ header {
   transition: color 0.5s;
 }
 .btn.btn-1 input:not(:checked):after{
-  color: #fff;
+  color: #000;
   transition: color 0.5s 0.2s;
 }
 .btn.btn-1 input:not(:checked) + label {
   left: 80px;
   right: 30px;
-  background: #8d2b2b;
+  background: #F0F0F3;
   transition: left 0.4s 0.2s, right 0.5s, background 0.35s -0.1s;
 }
 section {
