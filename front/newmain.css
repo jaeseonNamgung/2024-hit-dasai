@@ -13,7 +13,6 @@ body {
   height: 100vh;
 }
 a {
-  color: #fff;
   text-decoration: none;
 }
 header {
@@ -41,6 +40,7 @@ header {
 }
 .nav li a {
   font-size: 17px;
+  color: #fff;
 }
 .nav li a:hover {
   color: #8d2b2b;
