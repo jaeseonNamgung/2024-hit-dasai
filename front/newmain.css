@@ -172,11 +172,11 @@ section {
   transform: rotateY(180deg);
   position: absolute;
   border-radius: 50px;
-  height: 500px;
+  height: 450px;
   background: #fff;
 }
 .content {
-  padding: 30px;
+  padding: 18px;
 }
 .content h2 {
   font-size: 30px;
@@ -187,7 +187,7 @@ section {
   padding: 13px;
 }
 .introduce {
-  font-size: 18px;
+  font-size: 16px;
   text-align: center;
   padding: 5px;
 }
