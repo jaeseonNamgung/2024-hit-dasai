@@ -182,8 +182,6 @@ $(document).ready(function() {
               });
               $('body').removeClass('noto-serif-sc-regular');
               $('body').attr('data-current-lang', 'ko');
-              $('body').css('background-color', '#f3f3f3');//배경 바뀌는 부분
-            $('body').css('background', 'none'); 
         } else if(language === 'cn') {
             $('[data-cn]').each(function() {
                 $(this).text($(this).data('cn'));
@@ -193,8 +191,6 @@ $(document).ready(function() {
                 $(this).attr('placeholder', $(this).data('cn-placeholder'));
               });
               $('body').addClass('noto-serif-sc-regular');
-              $('body').attr('data-current-lang', 'cn');
-              $('body').css('background', 'linear-gradient(to top, #862929 30%, #000 100%)');
         }
     }
 
