@@ -111,6 +111,12 @@ document.addEventListener('DOMContentLoaded', function() {
             rankElement.querySelector('h1').textContent = index + 1; // 등수 표시
             rankElement.querySelector('.rank_name').textContent = rank.nickName; // 닉네임
             // 캐릭터 타입을 현재 언어 설정에 맞게 변환하여 표시
+            if (rank.nickName === nickname) {
+                isInTopFive = true;
+                userRankIndex = index + 1; // 사용자의 순위 저장
+                // 사용자가 상위 5위 안에 있을 경우, 해당 순위 요소에 특별한 스타일 적용
+                rankElement.style.border = '2px solid #8d2b2b';
+            }
             var typesText = rank.characters.map(function(character) {
                 var characterName = character; // 기본값 설정
                 if (preferredLanguage === 'cn') {
