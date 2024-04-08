@@ -197,6 +197,10 @@ section button {
 }
 
 /* tab */
+.story-item {
+  clear: both; /* 플로팅 해제 */
+  margin-bottom: 20px; /* 각 항목 사이의 간격 */
+}
 .tabs > div {
   display: none;
   margin: 20px;
@@ -239,7 +243,8 @@ section button {
   margin: 20px 10px;
 }
 .story_img img {
-  width: 400px;
+  /* width: 400px;
+  height: 400px; */
   height: 400px;
   float: left;
   margin-left: 25px;

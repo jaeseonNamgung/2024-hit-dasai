@@ -49,7 +49,6 @@ $(document).ready(function() {
     var language = $(this).is(":checked") ? 'ko' : 'cn';
     localStorage.setItem('preferredLanguage', language);
 
-      console.log(background-color);
     window.loadStoryInNewLanguage(language); //수정
   });
 
