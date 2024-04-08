@@ -1,5 +1,6 @@
 $(document).ready(function() {
     function getCurrentLanguage() {
+        // translate.js의 localStorage 사용과 일치하게 언어 선호도를 매칭합니다.
         var preferredLanguage = localStorage.getItem('preferredLanguage');
         return preferredLanguage === 'ko' ? 'ko' : 'cn';
     }
@@ -8,23 +9,24 @@ $(document).ready(function() {
         ko: {},
         cn: {}
     };
-
+    $('.select li').removeClass('active')
     $('.select li').click(function() {
         $('.box').hide();
         $(this).addClass('active').siblings().removeClass('active');
-        var isFirstItem = $(this).is(':first-child'); // 첫 번째 항목인지 확인
+        // var storyId = $(this).attr('data-alt').replace('tab', '');
         var storyIdKo = $(this).data('story-id-ko');
         var storyIdCn = $(this).data('story-id-cn');
         $('#tab_story').show().empty(); 
 
+        // fetchStoryData(storyId);
         // 한국어 버전 데이터 요청
-        fetchStoryData(storyIdKo, 'ko', isFirstItem);
+        fetchStoryData(storyIdKo, 'ko');
 
         // 중국어 버전 데이터 요청
-        fetchStoryData(storyIdCn, 'cn', isFirstItem);
+        fetchStoryData(storyIdCn, 'cn');
     });
 
-    function fetchStoryData(storyId, preferredLanguage, isFirstItem) {
+    function fetchStoryData(storyId, preferredLanguage) {
         ; var language = getCurrentLanguage(); // 현재 언어 설정을 가져옴
         $.ajax({
             url: `http://15.164.230.127:8080/story/${storyId}/${preferredLanguage}`,
@@ -37,7 +39,7 @@ $(document).ready(function() {
     
                 // 현재 언어 설정에 맞는 데이터만 화면에 표시
                 if (preferredLanguage === getCurrentLanguage()) {
-                    displayStory(data, isFirstItem); // isFirstItem 인자 추가
+                    displayStory(data);
                 }
             },
             error: function(error) {
@@ -46,71 +48,30 @@ $(document).ready(function() {
         });
     }
 
-    // function displayStory(data, isFirstItem) {
-    //     var tabContent = $('#tab_story'); // 스토리 내용이 추가되는 컨테이너
-    //     let totalDelay = 0;
-    //     let delayIncrement = isFirstItem ? 3000 : 2000;
-
-    //     console.log("현재 지연 시간 증가량:", delayIncrement);
-
-    //     data.forEach((item, arrayIndex) => {
-    //         item.storyContents.forEach((content, contentIndex) => {
-    //             setTimeout(() => {
-    //                 let messageClass = arrayIndex === 0 && contentIndex === 0 ? 'wen' : 'da';
-    //                 const message = $(`<p class="${messageClass}">${content}</p>`);
-    //                 tabContent.append(message);
-    //                 // 메시지 추가 후 스크롤 조정
-    //                 adjustScrollWithinContainerSmoothly(tabContent, 50);
-    //             }, totalDelay);
-    //             totalDelay += delayIncrement; // 다음 메시지를 위한 지연 시간
-    //         });
-    
-    //         item.storyImagesUrl.forEach((imageUrl, index) => {
-    //             setTimeout(() => {
-    //                 const image = $(`<div class="story_img"><img src="${imageUrl}" alt="story image" style="width: 400px; height: 400px; float: left; margin-left: 25px; margin-top: 25px;"></div>`);
-    //                 tabContent.append(image);
-    //                 // 이미지 추가 후 스크롤 조정
-    //                 adjustScrollWithinContainerSmoothly(tabContent, 50);
-    //             }, totalDelay);
-    //             totalDelay += delayIncrement; // 다음 이미지를 위한 지연 시간
-    //         });
-    //     });
-    // }
-
-    function displayStory(data, isFirstItem) {
-        var tabContent = $('#tab_story'); 
+    function displayStory(data) {
+        var tabContent = $('#tab_story'); // 스토리 내용이 추가되는 컨테이너
         let totalDelay = 0;
-        let delayIncrement = isFirstItem ? 3000 : 2000;
-
-        console.log("현재 지연 시간 증가량:", delayIncrement);
     
-        // 모든 항목의 이미지 먼저 표시
-        data.list.forEach((item, itemIndex) => {
-            item.storyImagesUrl.forEach((imageUrl) => {
+        data.forEach((item, arrayIndex) => {
+            item.storyContents.forEach((content, contentIndex) => {
+                setTimeout(() => {
+                    let messageClass = arrayIndex === 0 && contentIndex === 0 ? 'wen' : 'da';
+                    const message = $(`<p class="${messageClass}">${content}</p>`);
+                    tabContent.append(message);
+                    // 메시지 추가 후 스크롤 조정
+                    adjustScrollWithinContainerSmoothly(tabContent, 50);
+                }, totalDelay);
+                totalDelay += 2000; // 다음 메시지를 위한 지연 시간
+            });
+    
+            item.storyImagesUrl.forEach((imageUrl, index) => {
                 setTimeout(() => {
                     const image = $(`<div class="story_img"><img src="${imageUrl}" alt="story image" style="width: 400px; height: 400px; float: left; margin-left: 25px; margin-top: 25px;"></div>`);
                     tabContent.append(image);
+                    // 이미지 추가 후 스크롤 조정
                     adjustScrollWithinContainerSmoothly(tabContent, 50);
                 }, totalDelay);
-                totalDelay += delayIncrement;
-            });
-        });
-    
-        // 모든 항목의 텍스트 표시, list[0]의 첫 번째 텍스트에만 'wen' 클래스 적용
-        data.list.forEach((item, itemIndex) => {
-            item.storyContents.forEach((content, contentIndex) => {
-                setTimeout(() => {
-                    let messageClass;
-                    if (itemIndex === 0 && contentIndex === 0) {
-                        messageClass = 'wen'; // list[0]의 첫 번째 텍스트
-                    } else {
-                        messageClass = 'da'; // 그 외 모든 텍스트
-                    }
-                    const message = $(`<p class="${messageClass}">${content}</p>`);
-                    tabContent.append(message);
-                    adjustScrollWithinContainerSmoothly(tabContent, 50);
-                }, totalDelay);
-                totalDelay += delayIncrement;
+                totalDelay += 2000; // 다음 이미지를 위한 지연 시간
             });
         });
     }
