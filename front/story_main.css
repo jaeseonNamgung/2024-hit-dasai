@@ -297,7 +297,23 @@ footer {
   margin-left: 25px;
   margin-top: 25px;
 } */
-.noto-serif-sc-regular {
+.chineseFont {
   font-family: "source-han-sans-cn-variable", sans-serif;
   font-variation-settings: "wght" 250;
+}
+
+body.chineseFont .nav {
+  font-variation-settings: 'wght' 700;
+}
+
+body.chineseFont section button {
+  font-variation-settings: 'wght' 400; 
+}
+
+body.chineseFont .tabs > p {
+  font-variation-settings: 'wght' 400;
+}
+
+body.chineseFont .select li  {
+  font-variation-settings: 'wght' 400;
 }

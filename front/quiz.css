@@ -189,7 +189,23 @@ section {
   cursor: pointer;
   color: #000;
 }
-.noto-serif-sc-regular {
+.chineseFont {
   font-family: "source-han-sans-cn-variable", sans-serif;
   font-variation-settings: "wght" 250;
+}
+
+body.chineseFont .nav {
+  font-variation-settings: 'wght' 700;
+}
+
+body.chineseFont .quiz_logo h1 {
+  font-variation-settings: 'wght' 700; 
+}
+
+body.chineseFont .login h2 {
+  font-variation-settings: 'wght' 400;
+}
+
+body.chineseFont #go_quiz {
+  font-variation-settings: 'wght' 400;
 }

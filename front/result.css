@@ -340,7 +340,30 @@ input:focus::placeholder {
   background-color: #ffffff;
   cursor: pointer;
 }
-.noto-serif-sc-regular {
+.chineseFont {
   font-family: "source-han-sans-cn-variable", sans-serif;
   font-variation-settings: "wght" 250;
+}
+
+body.chineseFont .nav {
+  font-variation-settings: 'wght' 700;
+}
+
+body.chineseFont .type {
+  font-variation-settings: 'wght' 700;
+}
+
+body.chineseFont .ask {
+  font-variation-settings: 'wght' 400; 
+}
+
+body.chineseFont .rank_name {
+  font-variation-settings: 'wght' 400;
+}
+
+body.chineseFont .types {
+  font-variation-settings: 'wght' 400;
+}
+body.chineseFont .review  {
+  font-variation-settings: 'wght' 400;
 }

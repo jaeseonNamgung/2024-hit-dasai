@@ -247,7 +247,23 @@ section {
   transition: 0.3s;
   cursor: pointer;
 }
-.noto-serif-sc-regular {
+.chineseFont {
   font-family: "source-han-sans-cn-variable", sans-serif;
   font-variation-settings: "wght" 250;
+}
+
+body.chineseFont .nav {
+  font-variation-settings: 'wght' 700;
+}
+
+body.chineseFont .go_btn {
+  font-variation-settings: 'wght' 400; 
+}
+
+body.chineseFont .content h2 {
+  font-variation-settings: 'wght' 700;
+}
+
+body.chineseFont .introduce {
+  font-variation-settings: 'wght' 400;
 }

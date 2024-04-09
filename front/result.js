@@ -180,7 +180,7 @@ $(document).ready(function() {
               $('[data-ko-placeholder]').each(function() {
                 $(this).attr('placeholder', $(this).data('ko-placeholder'));
               });
-              $('body').removeClass('noto-serif-sc-regular');
+              $('body').removeClass('chineseFont');
               $('body').attr('data-current-lang', 'ko');
         } else if(language === 'cn') {
             $('[data-cn]').each(function() {
@@ -190,7 +190,7 @@ $(document).ready(function() {
               $('[data-cn-placeholder]').each(function() {
                 $(this).attr('placeholder', $(this).data('cn-placeholder'));
               });
-              $('body').addClass('noto-serif-sc-regular');
+              $('body').addClass('chineseFont');
         }
     }
 
@@ -304,7 +304,7 @@ $(document).ready(function() {
                 console.log(response.content);
                 // 요청이 성공했을 때 실행할 함수.
                 $(that).closest('.user_list').find('.ment').text(response.content);
-            alert('번역 성공: ' + response.content);
+            // alert('번역 성공: ' + response.content);
             },
             error: function(xhr, status, error) {
                 // 요청이 실패했을 때 실행할 함수
