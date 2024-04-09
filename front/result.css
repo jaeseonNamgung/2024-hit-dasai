@@ -7,13 +7,13 @@ body {
   font-style: normal;
   margin: 0;
   padding: 0;
-  /* background: linear-gradient(to top, #862929 30%, #000 100%); */
-  background-color: #f3f3f3;
-  /* position: relative; */
+  background: linear-gradient(to top, #862929 30%, #d7874a 100%);
   height: 100vh;
+  background-attachment: fixed;
+  color: #fff;
 }
 a {
-  color: #000;
+  color: #fff;
   text-decoration: none;
 }
 header {
@@ -43,7 +43,7 @@ header {
   font-size: 17px;
 }
 .nav li a:hover {
-  color: #8d2b2b;
+  color: #be3f3f;
   transition: 0.3s;
 }
 section {
@@ -71,18 +71,20 @@ section {
 }
 /* 랭크 */
 .rank {
-  background-color: #e5e5e5;
+  /* background-color: #ffffff; */
   border-radius: 40px;
   width: 1100px;
   margin: auto;
-  border: 1px solid rgba(255, 0, 0, 0);
+  /* border: 2px solid #fff; */
   padding: 30px;
+  box-shadow: rgba(9, 30, 66, 0.358) 0px 4px 8px -2px, rgba(9, 30, 66, 0.153) 0px 0px 0px 1px;
 }
 .ask {
-  margin-top: 10px;
+  margin-top: 25px;
   text-align: center;
   font-size: 23px;
-  font-weight: 400;
+  font-weight: 500;
+  color: #fff;
 }
 .ranks {
   overflow: hidden;
@@ -90,15 +92,16 @@ section {
   margin: auto;
 }
 .ranks div {
-  background-color: #fff;
-  border-radius: 30px;
+  /* background-color: #fefefe; */
+  border: 1px solid #fff;
+  border-radius: 40px;
   box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
   display: flex;
   margin: 20px;
   align-items: center;
 }
 .ranks h1 {
-  background: #8d2b2b;
+  background: #eb8745;
   color: #fff;
   border-radius: 50px;
   width: 55px;
@@ -113,9 +116,10 @@ section {
   font-size: 25px;
   font-weight: 300;
   line-height: 45px;
+  color: #fff;
 }
 .types {
-  color: #7a7a7a;
+  color: #000;
   margin-left: auto;
   margin-right: 30px;
   line-height: 30px;
@@ -123,23 +127,24 @@ section {
   font-weight: 300;
 }
 .rank6 {
-  border: 2px solid #8d2b2b;
+  background-color: #fff;
+  color: #000;
 }
 
 /* 나의 한마디 */
 .reviews {
-  background-color: #e5e5e5;
   border-radius: 40px;
   width: 1100px;
   margin: auto;
-  border: 1px solid rgba(255, 0, 0, 0);
+  box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
   margin-top: 30px;
   padding: 30px;
 }
 .review {
-  margin-top: 30px;
+  margin-top: 25px;
   text-align: center;
-  font-weight: 400;
+  font-weight: 500;
+  color: #fff;
 } 
 .users {
   overflow: hidden;
@@ -147,9 +152,9 @@ section {
   margin: auto;
 }
 .users div {
-  background-color: #fff;
   flex-wrap: wrap;
   border-radius: 40px;
+  border: 1px solid #fff;
   box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
   display: flex;
   margin: 20px;
@@ -166,13 +171,13 @@ section {
   font-size: 20px;
 }
 .user_name i {
-  color: #8d2b2b;
+  color: #fff;
   margin-right: 10px;
   font-size: 25px;
 }
 .users a {
   /* border: 1px solid red; */
-  color: #8d2b2b;
+  color: #fff;
   font-size: 25px;
   margin-left: auto;
   padding-left: 10px;
@@ -274,7 +279,7 @@ section {
 /* 페이지 수 (추가) */
 .page {
   display: flex;
-  border-bottom: 1px solid #7a7a7a;
+  border-bottom: 1px solid #ffffff;
   padding: 5px;
   /* border: 1px solid red; */
   text-align: center;
@@ -289,7 +294,7 @@ section {
   cursor: pointer;
 }
 .page p:hover {
-  color: #8d2b2b;
+  color: #fab25b;
 }
 /* input */
 input[type=text] {
@@ -301,7 +306,7 @@ input[type=text] {
   font-size: 16px;
   width: 850px;
   height: 60px;
-  background-color: #c9c9c9;
+  background-color: #ffffff;
   color: #000;
   margin-top: 20px;
 }
@@ -309,8 +314,8 @@ input::placeholder {
   opacity: 1;
   transition: 0.3s;
 }
-input[type=text]:focus {
-  border: 2px solid #8d2b2b;
+.reviews input[type=text]:focus {
+  border: 2px solid #fab25b;
 }
 input:focus::placeholder {
   opacity: 0;
@@ -323,16 +328,16 @@ input:focus::placeholder {
   font-family: "omnigothic", sans-serif;
   font-weight: 400;
   text-align: center;
-  border: none;
+  border: 1px solid #fff;
   border-radius: 40px;
-  background-color: #8d2b2b;
   color: #fff;
+  background-color: #ffffff00;
 }
 .push:hover {
   transition: 0.3s;
-  border: 1px solid #3f3f3f;
-  color: #3f3f3f;
-  background-color: #c9c9c9;
+  /* border: 1px solid #3f3f3f; */
+  color: #000000;
+  background-color: #ffffff;
   cursor: pointer;
 }
 .noto-serif-sc-regular {

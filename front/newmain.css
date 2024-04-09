@@ -7,10 +7,9 @@ body {
   font-style: normal;
   margin: 0;
   padding: 0;
-  background: linear-gradient(to top, #862929 30%, #000 100%);
-  /* background: #272525; */
-  /* position: relative; */
+  background: linear-gradient(to top, #862929 30%, #d7874a 100%);
   height: 100vh;
+  background-attachment: fixed;
 }
 a {
   text-decoration: none;
@@ -43,7 +42,7 @@ header {
   color: #fff;
 }
 .nav li a:hover {
-  color: #8d2b2b;
+  color: #be3f3f;
   transition: 0.3s;
 }
 .btn {
@@ -104,11 +103,11 @@ header {
 .btn.btn-1 input:checked + label {
   left: 9px;
   right: 95px;
-  background: #8d2b2b;
+  background: #be3f3f;
   transition: left 0.5s, right 0.4s 0.2s;
 }
 .btn.btn-1 input:not(:checked){
-  background: #8d2b2b;
+  background: #be3f3f;
   transition: background 0.5s -0.1s;
 }
 .btn.btn-1 input:not(:checked)::before{
@@ -172,11 +171,11 @@ section {
   transform: rotateY(180deg);
   position: absolute;
   border-radius: 50px;
-  height: 500px;
+  height: 450px;
   background: #fff;
 }
 .content {
-  padding: 30px;
+  padding: 18px;
 }
 .content h2 {
   font-size: 30px;
@@ -187,7 +186,7 @@ section {
   padding: 13px;
 }
 .introduce {
-  font-size: 18px;
+  font-size: 16px;
   text-align: center;
   padding: 5px;
 }
