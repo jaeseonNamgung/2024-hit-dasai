@@ -12,6 +12,7 @@ $(document).ready(function() {
       });
       $('body').removeClass('chineseFont');
       $('input').removeClass('chineseFont');
+      $('button').removeClass('chineseFont');
     } else {
       // 체크박스가 해제되어 있으면 기본으로 중국어로 설정
       $('[data-cn]').each(function() {
@@ -22,7 +23,8 @@ $(document).ready(function() {
         $(this).attr('placeholder', $(this).data('cn-placeholder'));
       });
       $('body').addClass('chineseFont');
-      $('input').addClass('chineseFontr');
+      $('input').addClass('chineseFont');
+      $('button').addClass('chineseFont');
     }
   }
 

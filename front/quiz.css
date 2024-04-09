@@ -209,3 +209,7 @@ body.chineseFont .login h2 {
 body.chineseFont #go_quiz {
   font-variation-settings: 'wght' 400;
 }
+body.chineseFont .login input {
+  font-family: "source-han-sans-cn-variable", sans-serif;
+  font-variation-settings: "wght" 250;
+}
