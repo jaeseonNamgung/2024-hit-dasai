@@ -248,7 +248,6 @@ section {
   cursor: pointer;
 }
 .noto-serif-sc-regular {
-  font-family: "Noto Serif SC", serif;
-  font-weight: 400;
-  font-style: normal;
+  font-family: "source-han-sans-cn-variable", sans-serif;
+  font-variation-settings: "wght" 250;
 }
