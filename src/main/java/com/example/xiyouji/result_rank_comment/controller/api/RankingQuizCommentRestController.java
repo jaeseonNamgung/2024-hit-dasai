@@ -75,9 +75,6 @@ public class RankingQuizCommentRestController {
 
         String translationResult = translator.translate(commentRequest.comment(), languageType, targetLanguageType);
 
-       /* String translationResult = languageType.getValue_baidu().equals("kor") ?
-                translator.translate(commentRequest.comment(), Language.CN, Language.KR) :
-                translator.translate(commentRequest.comment(), Language.KR, Language.CN);*/
 
         return ResponseEntity.ok(TranslateResponse.of(translationResult));
     }

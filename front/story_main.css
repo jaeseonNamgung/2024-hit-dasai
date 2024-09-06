@@ -256,48 +256,6 @@ footer {
   margin-left: 25px;
   margin-top: 25px;
 }
-
-/* 답안이 2개 + 이미지 */
-/* #tab2, #tab3 {
-  overflow: hidden;
-  overflow-y: scroll;
-}
-#tab2 div, #tab3 div {
-  overflow: hidden;
-}
-.da_short {
-  padding: 25px 40px;
-  background-color: #fff;
-  border-radius: 0 40px 40px 40px;
-  margin-top: 90px;
-  margin-left: 10px;
-  padding: 25px 40px;
-  float: left;
-}
-.da_long {
-  background-color: #fff;
-  border-radius: 0 40px 40px 40px;
-  padding: 30px;
-  margin-top: 190px;
-  margin-left: 10px;
-  text-align: left;
-  width: 800px;
-}
-.story_img_long {
-  background-color: #fff;
-  width: 450px;
-  height: 450px;
-  border-radius: 0 40px 40px 40px;
-  margin-left: 10px;
-  margin-top: 10px;
-}
-.story_img_long img {
-  width: 400px;
-  height: 400px;
-  float: left;
-  margin-left: 25px;
-  margin-top: 25px;
-} */
 .chineseFont {
   font-family: "source-han-sans-cn-variable", sans-serif;
   font-variation-settings: "wght" 250;
@@ -308,7 +266,7 @@ body.chineseFont .nav {
 }
 
 body.chineseFont section button {
-  font-variation-settings: 'wght' 400; 
+  font-variation-settings: 'wght' 400;
 }
 
 body.chineseFont .tabs > p {

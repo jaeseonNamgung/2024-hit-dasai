@@ -218,24 +218,3 @@ footer {
   right: 4%;
   border-radius: 50px 50px 50px 0;
 }
-/* .name {
-  position: relative;
-  top: 50%; 
-  left: 50%; 
-  transform: translate(-50%, -50%);
-}
-.character_name {
-  width: 280px;
-  height: 90px;
-  border-radius: 50px;
-  border: none;
-  background-color: #fab25b;
-  color: #fff;
-  line-height: 90px;
-  box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
-  font-family: "omnigothic", sans-serif;
-  font-weight: 300;
-  font-size: 25px;
-  text-align: center;
-  margin: auto;
-} */

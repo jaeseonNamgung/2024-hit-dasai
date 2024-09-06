@@ -14,11 +14,11 @@ $(function() {
         $(".introduce").text("");
 
         var characterName = $(this).attr("character-name");
-        var language = getCurrentLanguage(); 
+        var language = getCurrentLanguage();
 
         console.log("준비 완료");
         $.ajax({
-            url: `http://15.164.230.127:8080/character/${characterName}/${language}`, // 언어 변수를 동적으로 사용
+            url: `http://localhost:8080/character/${characterName}/${language}`, // 언어 변수를 동적으로 사용
             type: 'GET',
             dataType: 'json',
             success: function(response) {

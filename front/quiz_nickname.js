@@ -20,9 +20,9 @@ $(document).ready(function() {
     function fetchQuizData(nickname) {
         console.log("준비 완료");
         // var encodedNickname = encodeURIComponent(nickname); // 닉네임 인코딩
-        var language = getCurrentLanguage(); 
+        var language = getCurrentLanguage();
         $.ajax({
-            url: `http://15.164.230.127:8080/quiz/start/${nickname}/${language}`,
+            url: `http://localhost:8080/quiz/start/${nickname}/${language}`,
             type: 'GET',
             dataType: 'json',
             success: function(data) {

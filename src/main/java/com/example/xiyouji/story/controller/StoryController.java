@@ -39,9 +39,13 @@ public class StoryController {
         return ResponseEntity.ok(storyService.getStory(storyRequestDto));
     }*/
 
-    @GetMapping("/character/{characterType}/{language}")
-    public StoryDto.StoryResponseDto getCharacterStoryContent(@PathVariable String language, @PathVariable String characterType) {
+    @GetMapping("/character/{title}/{characterType}/{language}")
+    public StoryDto.StoryResponseDto getCharacterStoryContent(
+            @PathVariable String title,
+            @PathVariable String language,
+            @PathVariable String characterType) {
         StoryDto.StoryRequestDto storyRequestDto = StoryDto.StoryRequestDto.builder()
+                .storyTitle(title)
                 .character(Characters.fromString(characterType))
                 .language(Language.fromString(language))
                 .build();

@@ -25,7 +25,7 @@ public class CommentQueryDslRepositoryImpl implements CommentQueryDslRepository 
     public Page<Comment> pagingComments(Pageable pageable) {
         List<Comment> commentList = jpaQueryFactory
                 .selectFrom(comment)
-                .join(comment.member, member).fetchJoin()
+                .leftJoin(comment.member, member).fetchJoin()
                 .orderBy(comment.createdDate.desc())
                 .limit(pageable.getPageSize())
                 .offset(pageable.getOffset())

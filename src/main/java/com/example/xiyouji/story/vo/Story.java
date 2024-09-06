@@ -21,7 +21,7 @@ public class Story {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Enumerated
+    @Enumerated(EnumType.STRING)
     private Characters characters;
 
     private String storyTitle;
@@ -33,7 +33,7 @@ public class Story {
     @OneToMany(mappedBy = "story", orphanRemoval = true, cascade = CascadeType.ALL)
     private List<StoryImage> storyImages;
 
-    @Enumerated
+    @Enumerated(EnumType.STRING)
     private Language language;
 
     private Integer paragraphMax;

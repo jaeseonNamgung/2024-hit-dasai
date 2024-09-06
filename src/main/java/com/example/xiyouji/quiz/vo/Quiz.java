@@ -23,13 +23,14 @@ public abstract class Quiz {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Enumerated
+    @Enumerated(EnumType.STRING)
     private Characters characterType;
 
     private String quizContent;
 
     private String answerDescription;
 
+    @Enumerated(EnumType.STRING)
     private Language language;
 
 

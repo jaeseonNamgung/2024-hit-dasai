@@ -5,6 +5,7 @@ import com.example.xiyouji.type.Language;
 import com.google.common.base.Optional;
 import com.optimaize.langdetect.LanguageDetector;
 import com.optimaize.langdetect.LanguageDetectorBuilder;
+import com.optimaize.langdetect.i18n.LdLocale;
 import com.optimaize.langdetect.ngram.NgramExtractors;
 import com.optimaize.langdetect.profiles.LanguageProfile;
 import com.optimaize.langdetect.profiles.LanguageProfileReader;
@@ -35,8 +36,7 @@ public class CommentLanguageDetector {
 
     public Language detectLanguage(String text) {
         // 텍스트의 언어 감지
-        Optional<String> lang = languageDetector.detect(text).transform(result -> result.getLanguage());
-
+        Optional<String> lang = languageDetector.detect(text).transform(LdLocale::getLanguage);
         // 감지된 언어 반환 (감지되지 않은 경우 "unknown" 반환)
         return Language.detectLanguage(lang.or("zh"));
     }

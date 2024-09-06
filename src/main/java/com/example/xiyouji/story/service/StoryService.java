@@ -47,9 +47,9 @@ public class StoryService {
     }
 
     public StoryDto.StoryResponseDto getCharacterStory(StoryDto.StoryRequestDto storyRequestDto) {
-        Story story = storyRepository.getStoryByCharactersAndLanguage(storyRequestDto.getCharacter(), storyRequestDto.getLanguage())
+        Story story = storyRepository.getStoryByStoryTitleAndCharactersAndLanguage(storyRequestDto.getStoryTitle(), storyRequestDto.getCharacter(), storyRequestDto.getLanguage())
                 .orElseThrow(() -> new RestApiException(StoryErrorCode.STORY_NOT_EXIST));
-
+        System.out.println(story.getStoryContent().get(0).getContent());
         return story.toStoryResponseDto();
     }
 
